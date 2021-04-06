@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-        $id = $_GET['id'];
-        $link = mysqli_connect("localhost", "root", "", "cinema_db");
-
-        $movieQuery = "SELECT * FROM movieTable WHERE movieID = $id"; 
-        $movieImageById = mysqli_query($link,$movieQuery);
-        $row = mysqli_fetch_array($movieImageById);
+    require 'includes/classes/Booking.php';
+    require 'moviesObj.php';
+    $moviesTable->initBooking();
 ?>
 
 <head>
@@ -16,7 +13,7 @@
     <link rel="stylesheet" href="assets/css/style-main.css">
     <link rel="stylesheet" href="stylecinema.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-    <title>Book <?php echo $row['movieTitle']; ?> Now</title>
+    <title>Book <?php $moviesTable->initMovieTitle(); ?> Now</title>
     <link rel="icon" type="image/png" href="assets/images/logo.png">
 </head>
 
@@ -31,33 +28,33 @@
         <div class="booking-panel-section booking-panel-section3">
             <div class="movie-box">
                 <?php
-                    echo '<img src="'.$row['movieImg'].'" alt="">';
+                    $moviesTable->initMovieImg();
                     ?>
             </div>
         </div>
         <div class="booking-panel-section booking-panel-section4">
-            <div class="title"><?php echo $row['movieTitle']; ?></div>
+            <div class="title"><?php $moviesTable->initMovieTitle(); ?></div>
             <div class="movie-information">
                 <table>
                     <tr>
                         <td>GENGRE</td>
-                        <td><?php echo $row['movieGenre']; ?></td>
+                        <td><?php $moviesTable->initMovieGenre(); ?></td>
                     </tr>
                     <tr>
                         <td>DURATION</td>
-                        <td><?php echo $row['movieDuration']; ?></td>
+                        <td><?php $moviesTable->initMovieDuartion(); ?></td>
                     </tr>
                     <tr>
                         <td>RELEASE DATE</td>
-                        <td><?php echo $row['movieRelDate']; ?></td>
+                        <td><?php $moviesTable->initMovieRelDate(); ?></td>
                     </tr>
                     <tr>
                         <td>DIRECTOR</td>
-                        <td><?php echo $row['movieDirector']; ?></td>
+                        <td><?php $moviesTable->initMovieDirector(); ?></td>
                     </tr>
                     <tr>
                         <td>ACTORS</td>
-                        <td><?php echo $row['movieActors']; ?></td>
+                        <td><?php $moviesTable->initMovieActors(); ?></td>
                     </tr>
                 </table>
             </div>
@@ -113,45 +110,7 @@
 
                     <button type="submit" value="submit" name="submit" class="form-btn">Book a Seat</button>
                     <?php
-                    $fNameErr = $pNumberErr= "";
-                    $fName = $pNumber = "";
-            
-                    if(isset($_POST['submit'])){
-                     
-            
-                        $fName = $_POST['fName'];
-                        if (!preg_match('/^[a-zA-Z0-9\s]+$/', $fName)) {
-                            $fNameErr = 'Name can only contain letters, numbers and white spaces';
-                            echo "<script type='text/javascript'>alert('$fNameErr');</script>";
-                        }   
-            
-                        $pNumber = $_POST['pNumber'];
-                        if (preg_match("/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/", $pNumber)) {
-                            $pNumberErr = 'Phone Number can only contain numbers and white spaces';
-                            echo "<script type='text/javascript'>alert('$pNumberErr');</script>";
-                        } 
-                        
-                        $insert_query = "INSERT INTO 
-                        bookingTable (  movieName,
-                                        bookingTheatre,
-                                        bookingType,
-                                        bookingDate,
-                                        bookingTime,
-                                        bookingFName,
-                                        bookingLName,
-                                        bookingPNumber,
-                                        seatP)
-                        VALUES (        '".$row['movieTitle']."',
-                                        '".$_POST["theatre"]."',
-                                        '".$_POST["type"]."',
-                                        '".$_POST["date"]."',
-                                        '".$_POST["hour"]."',
-                                        '".$_POST["fName"]."',
-                                        '".$_POST["lName"]."',
-                                        '".$_POST["pNumber"]."',
-                                        '".$_POST["seat"]."')";
-                        mysqli_query($link,$insert_query);
-                        }
+                        $moviesTable->initMovieSubmit();
                     ?>
                 </form>
             </div>

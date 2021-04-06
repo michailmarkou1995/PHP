@@ -30,18 +30,7 @@
                 <textarea placeholder="Enter your message !" name="feedback" rows="10" cols="30" required></textarea><br>
                 <button type="submit" name="submit" value="submit">Send your Message</button>
                 <?php
-                    if(isset($_POST['submit'])){
-                        $insert_query = "INSERT INTO 
-                        feedbackTable ( senderfName,
-                                        senderlName,
-                                        sendereMail,
-                                        senderfeedback)
-                        VALUES (        '".$_POST["fName"]."',
-                                        '".$_POST["lName"]."',
-                                        '".$_POST["eMail"]."',
-                                        '".$_POST["feedback"]."')";
-                        mysqli_query($con,$insert_query);
-                        }
+                    $moviesTable->getFeedback();
                     ?>
             </form>
             

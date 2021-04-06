@@ -1,8 +1,9 @@
 <?php 
-require_once 'includes/fheaderinfo.php';
+//require_once 'includes/fheaderinfo.php';
 require_once 'includes/classes/User.php';
 require_once 'includes/classes/Movies.php';
-$moviesTable = new Movies($con, $userLoggedIn);
+require_once 'moviesObj.php';
+//$moviesTable = new Movies($con, $userLoggedIn);
 ?>
 
 

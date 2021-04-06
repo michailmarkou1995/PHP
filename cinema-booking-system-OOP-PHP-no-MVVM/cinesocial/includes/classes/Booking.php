@@ -1,9 +1,14 @@
 <?php
-//require '../includes/classes/Movies.php';
 
+if (strpos($_SERVER['REQUEST_URI'], "admin.php") !== false){
+    //require_once 'includes/classes/Admin.php';
+    }
+else
+{
+    include("includes/classes/Admin.php");
+}
 
 class Booking  {
-    private $Admin;
 
     public function __construct(){
         $this->getCon();
@@ -86,17 +91,18 @@ class Booking  {
             mysqli_query(mysqli_connect("localhost", "root", "", "cinema_db"),$insert_query);}
     }
     public static function delBooking(){
+        //if (Admin::verifyConAdmin() === TRUE) {
         $id = $_GET['id'];
         $link = mysqli_connect("localhost", "root", "", "cinema_db");
-    
+       
         $sql = "DELETE FROM bookingTable WHERE bookingID = $id"; 
-    
         if ($link->query($sql) === TRUE) {
             header('Location: admin.php');
             exit;
         } else {
             echo "Error deleting record: " . $link->error;
         }
+    //} else echo '';
     }
 }
 ?>

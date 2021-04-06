@@ -9,6 +9,10 @@ var shuffle = false;
 var userLoggedIn;
 var timer;
 
+$(document).ready(function () {
+    $("footer").load("includes/footer.php");
+});
+
 $(document).click(function(click) {
 	var target = $(click.target);
 

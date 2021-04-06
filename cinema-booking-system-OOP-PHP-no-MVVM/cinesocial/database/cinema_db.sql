@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Εξυπηρετητής: 127.0.0.1
--- Χρόνος δημιουργίας: 05 Απρ 2021 στις 12:04:06
+-- Χρόνος δημιουργίας: 06 Απρ 2021 στις 13:42:43
 -- Έκδοση διακομιστή: 10.4.18-MariaDB
 -- Έκδοση PHP: 8.0.3
 
@@ -64,8 +64,8 @@ CREATE TABLE `bookingtable` (
 --
 
 INSERT INTO `bookingtable` (`bookingID`, `movieName`, `bookingTheatre`, `bookingType`, `bookingDate`, `bookingTime`, `bookingFName`, `bookingLName`, `bookingPNumber`, `seatP`) VALUES
-(64, 'Captain Marvel', 'main-hall', '2d', '12-3', '09-00', 'Michail', 'Markou', '1234567899', '2'),
-(68, 'Interstellar', 'main-hall', '2d', '12-3', '09-00', 'MIONTRAGK', 'MARKOU', '0000000000', '4');
+(81, 'Captain Marvel', 'main-hall', '2d', '12-3', '09-00', 'Michail', 'Markou', '0000000000', '1'),
+(82, 'Justice League 2021', 'vip-hall', 'imax', '12-3', '09-00', 'MIONTRAGK', 'MARKOU', '1111111111', '2');
 
 -- --------------------------------------------------------
 
@@ -87,26 +87,7 @@ CREATE TABLE `feedbacktable` (
 
 INSERT INTO `feedbacktable` (`msgID`, `senderfName`, `senderlName`, `sendereMail`, `senderfeedback`) VALUES
 (1, 'michail', 'markou', 'test@gmail.com', 'Hello first'),
-(3, 'Michail', 'Markou', 'backtrackpower@gmail.com', 'das'),
-(4, 'Michail', 'Markou', 'backtrackpower@gmail.com', 'great movies'),
-(5, 'Michail', 'Markou', 'backtrackpower@gmail.com', 'great movies');
-
--- --------------------------------------------------------
-
---
--- Δομή πίνακα για τον πίνακα `messages`
---
-
-CREATE TABLE `messages` (
-  `id` int(11) NOT NULL,
-  `user_to` varchar(50) NOT NULL,
-  `user_from` varchar(50) NOT NULL,
-  `body` text NOT NULL,
-  `date` datetime NOT NULL,
-  `opened` varchar(3) NOT NULL,
-  `viewed` varchar(3) NOT NULL,
-  `deleted` varchar(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(4, 'Michail', 'Markou', 'backtrackpower@gmail.com', 'great movies');
 
 -- --------------------------------------------------------
 
@@ -196,12 +177,6 @@ ALTER TABLE `feedbacktable`
   ADD UNIQUE KEY `msgID` (`msgID`);
 
 --
--- Ευρετήρια για πίνακα `messages`
---
-ALTER TABLE `messages`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Ευρετήρια για πίνακα `movietable`
 --
 ALTER TABLE `movietable`
@@ -228,25 +203,25 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT για πίνακα `bookingtable`
 --
 ALTER TABLE `bookingtable`
-  MODIFY `bookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `bookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT για πίνακα `feedbacktable`
 --
 ALTER TABLE `feedbacktable`
-  MODIFY `msgID` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `msgID` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT για πίνακα `movietable`
 --
 ALTER TABLE `movietable`
-  MODIFY `movieID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `movieID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT για πίνακα `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
