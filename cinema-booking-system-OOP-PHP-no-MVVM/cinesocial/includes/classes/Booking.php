@@ -103,7 +103,7 @@ class Booking  {
         }
     }
 
-    public function getSeats($numseat, $moviesT)
+    public function getSeats($numseat, $moviesT)//supports only seat availability with no Theatre halls checking
     {
         if($result = mysqli_query($this->getCon(), $this->fetchbookingTable())){
             if(mysqli_num_rows($result) > 0){
