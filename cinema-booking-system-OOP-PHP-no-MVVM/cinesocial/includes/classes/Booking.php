@@ -117,7 +117,7 @@ class Booking  {
         }
     }
 
-    public function getMovieTheatre()
+    public function getMovieTheatre()//future work for per theatre check availability?
     {
         if($result = mysqli_query($this->getCon(), $this->fetchbookingTable())){
             if(mysqli_num_rows($result) > 0){
