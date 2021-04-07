@@ -67,6 +67,12 @@ class Movies {
     {
         echo $this->row['movieTitle'];
     }
+
+    public function getMovieTitle()
+    {
+        return $this->row['movieTitle'];
+    }
+   
     public function initMovieImg()
     {
         echo '<img src="'.$this->row['movieImg'].'" alt="">';
@@ -132,6 +138,8 @@ class Movies {
                                         '".$_POST["pNumber"]."',
                                         '".$_POST["seat"]."')";
                         mysqli_query($this->link,$insert_query);
+                        //ob_end_flush();
+                        echo '<meta http-equiv="refresh" content="1">';//refresh page so no RESEND data in DATABASE after submit
                         }
     }
 

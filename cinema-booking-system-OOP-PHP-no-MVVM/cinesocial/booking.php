@@ -11,7 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/css/style-main.css">
-    <link rel="stylesheet" href="stylecinema.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <title>Book <?php $moviesTable->initMovieTitle(); ?> Now</title>
     <link rel="icon" type="image/png" href="assets/images/logo.png">
@@ -63,7 +62,7 @@
 
                     <select name="theatre" required>
                         <option value="" disabled selected>THEATRE</option>
-                        <option value="main-hall">Main Hall</option>
+                        <option value="main-hall">Main Hall </option>
                         <option value="vip-hall">VIP Hall</option>
                         <option value="private-hall">Private Hall</option>
                     </select>
@@ -93,13 +92,19 @@
                         <option value="21-00">09:00 PM</option>
                         <option value="24-00">12:00 PM</option>
                     </select>
+                    <?php $books= new Booking(); ?>
                     <select name="seat" required>
                         <option value="" disabled selected>Seat</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option value="1">1 <?php $books->getSeats(1,$moviesTable->getMovieTitle())
+                        ?> </option>
+                        <option value="2">2 <?php $books->getSeats(2,$moviesTable->getMovieTitle())
+                        ?> </option>
+                        <option value="3">3 <?php $books->getSeats(3,$moviesTable->getMovieTitle())
+                        ?></option>
+                        <option value="4">4 <?php $books->getSeats(4,$moviesTable->getMovieTitle())
+                        ?></option>
+                        <option value="5">5 <?php $books->getSeats(5,$moviesTable->getMovieTitle())
+                        ?></option>
                     </select>
 
                     <input placeholder="First Name" type="text" name="fName" required>

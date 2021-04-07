@@ -1,7 +1,6 @@
 <?php
 
 if (strpos($_SERVER['REQUEST_URI'], "admin.php") !== false){
-    //require_once 'includes/classes/Admin.php';
     }
 else
 {
@@ -9,6 +8,7 @@ else
 }
 
 class Booking  {
+    private $row;
 
     public function __construct(){
         $this->getCon();
@@ -91,7 +91,6 @@ class Booking  {
             mysqli_query(mysqli_connect("localhost", "root", "", "cinema_db"),$insert_query);}
     }
     public static function delBooking(){
-        //if (Admin::verifyConAdmin() === TRUE) {
         $id = $_GET['id'];
         $link = mysqli_connect("localhost", "root", "", "cinema_db");
        
@@ -102,7 +101,33 @@ class Booking  {
         } else {
             echo "Error deleting record: " . $link->error;
         }
-    //} else echo '';
+    }
+
+    public function getSeats($numseat, $moviesT)
+    {
+        if($result = mysqli_query($this->getCon(), $this->fetchbookingTable())){
+            if(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_array($result)){
+                   if ($row[9] == $numseat && $moviesT == $row[1]){
+                    echo ' reserved seat';
+                }
+                } 
+                mysqli_free_result($result);
+            }
+        }
+    }
+
+    public function getMovieTheatre()
+    {
+        if($result = mysqli_query($this->getCon(), $this->fetchbookingTable())){
+            if(mysqli_num_rows($result) > 0){
+                while($this->row = mysqli_fetch_array($result)){
+                    return $this->row['bookingTheatre'];
+                } 
+                mysqli_free_result($result);
+            }
+        }
+        
     }
 }
 ?>

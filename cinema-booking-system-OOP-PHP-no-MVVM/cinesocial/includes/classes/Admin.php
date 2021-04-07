@@ -22,7 +22,6 @@ class Admin extends User {
             $user_details_query = mysqli_query(mysqli_connect("localhost", "root", "", "cinema_db"), "SELECT * FROM admins WHERE username='$adminLoggedIn'");
             $user = mysqli_fetch_array($user_details_query);
             self::$admcon = $adminLoggedIn;
-            //echo self::$admcon;
         }
         else {
             header("Location: ../loginadmin.php");
