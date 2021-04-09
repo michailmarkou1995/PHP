@@ -1,1 +1,1 @@
-simple cinema booking system with login admin/user portals OOP with no MVVM -- MVP product
+simple cinema booking system with login admin/user portals OOP with no MVVM -- Minimal Vial Product
