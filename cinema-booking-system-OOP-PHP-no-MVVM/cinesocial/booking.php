@@ -92,18 +92,25 @@
                         <option value="21-00">09:00 PM</option>
                         <option value="24-00">12:00 PM</option>
                     </select>
+                    <!--instead of hardcoreded SEAT NUMBER we could create admin Theatre Setup Seats availability methods so the hardcoded seats would be another 
+                    function fetching the Seat deployed by admin but this is not supported in this project maybe in future-->
                     <?php $books= new Booking(); ?>
                     <select name="seat" required>
                        <option value="" disabled selected>Seat</option>
-                        <option value="1" <?php if ($books->isReserved(1,$moviesTable->getMovieTitle())) echo "disabled" ?>>1 <?php $books->getSeats(1,$moviesTable->getMovieTitle()); 
+                        <option value="1" <?php if ($books->isReserved(1,$moviesTable->getMovieTitle())) echo "disabled" ?>>1 
+                            <?php $books->getSeats(1,$moviesTable->getMovieTitle()); 
                         ?></option>
-                        <option value="2" <?php if ($books->isReserved(2,$moviesTable->getMovieTitle())) echo "disabled" ?>>2 <?php $books->getSeats(2,$moviesTable->getMovieTitle())
+                        <option value="2" <?php if ($books->isReserved(2,$moviesTable->getMovieTitle())) echo "disabled" ?>>2 
+                            <?php $books->getSeats(2,$moviesTable->getMovieTitle())
                         ?> </option>
-                        <option value="3"<?php if ($books->isReserved(3,$moviesTable->getMovieTitle())) echo "disabled" ?>>3 <?php $books->getSeats(3,$moviesTable->getMovieTitle())
+                        <option value="3"<?php if ($books->isReserved(3,$moviesTable->getMovieTitle())) echo "disabled" ?>>3 
+                            <?php $books->getSeats(3,$moviesTable->getMovieTitle())
                         ?></option>
-                        <option value="4"<?php if ($books->isReserved(4,$moviesTable->getMovieTitle())) echo "disabled" ?>>4 <?php $books->getSeats(4,$moviesTable->getMovieTitle())
+                        <option value="4"<?php if ($books->isReserved(4,$moviesTable->getMovieTitle())) echo "disabled" ?>>4 
+                            <?php $books->getSeats(4,$moviesTable->getMovieTitle())
                         ?></option>
-                        <option value="5"<?php if ($books->isReserved(5,$moviesTable->getMovieTitle())) echo "disabled" ?>>5 <?php $books->getSeats(5,$moviesTable->getMovieTitle())
+                        <option value="5"<?php if ($books->isReserved(5,$moviesTable->getMovieTitle())) echo "disabled" ?>>5 
+                            <?php $books->getSeats(5,$moviesTable->getMovieTitle())
                         ?></option>
                     </select>
 
