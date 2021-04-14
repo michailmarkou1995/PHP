@@ -93,7 +93,8 @@
                         <option value="24-00">12:00 PM</option>
                     </select>
                     <!--instead of hardcoreded SEAT NUMBER we could create admin Theatre Setup Seats availability methods so the hardcoded seats would be another 
-                    function fetching the Seat deployed by admin but this is not supported in this project maybe in future-->
+                    function fetching the Seat deployed by admin but this is not supported in this project maybe in future
+                    something like <option value="1" instead php code<option value=seatNumberByFunction-->
                     <?php $books= new Booking(); ?>
                     <select name="seat" required>
                        <option value="" disabled selected>Seat</option>
