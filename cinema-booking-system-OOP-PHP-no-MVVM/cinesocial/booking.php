@@ -94,16 +94,16 @@
                     </select>
                     <?php $books= new Booking(); ?>
                     <select name="seat" required>
-                        <option value="" disabled selected>Seat</option>
-                        <option value="1">1 <?php $books->getSeats(1,$moviesTable->getMovieTitle())
-                        ?> </option>
-                        <option value="2">2 <?php $books->getSeats(2,$moviesTable->getMovieTitle())
-                        ?> </option>
-                        <option value="3">3 <?php $books->getSeats(3,$moviesTable->getMovieTitle())
+                       <option value="" disabled selected>Seat</option>
+                        <option value="1" <?php if ($books->isReserved(1,$moviesTable->getMovieTitle())) echo "disabled" ?>>1 <?php $books->getSeats(1,$moviesTable->getMovieTitle()); 
                         ?></option>
-                        <option value="4">4 <?php $books->getSeats(4,$moviesTable->getMovieTitle())
+                        <option value="2" <?php if ($books->isReserved(2,$moviesTable->getMovieTitle())) echo "disabled" ?>>2 <?php $books->getSeats(2,$moviesTable->getMovieTitle())
+                        ?> </option>
+                        <option value="3"<?php if ($books->isReserved(3,$moviesTable->getMovieTitle())) echo "disabled" ?>>3 <?php $books->getSeats(3,$moviesTable->getMovieTitle())
                         ?></option>
-                        <option value="5">5 <?php $books->getSeats(5,$moviesTable->getMovieTitle())
+                        <option value="4"<?php if ($books->isReserved(4,$moviesTable->getMovieTitle())) echo "disabled" ?>>4 <?php $books->getSeats(4,$moviesTable->getMovieTitle())
+                        ?></option>
+                        <option value="5"<?php if ($books->isReserved(5,$moviesTable->getMovieTitle())) echo "disabled" ?>>5 <?php $books->getSeats(5,$moviesTable->getMovieTitle())
                         ?></option>
                     </select>
 
