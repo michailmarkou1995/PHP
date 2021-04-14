@@ -9,6 +9,7 @@ else
 
 class Booking  {
     private $row;
+    private $isReservedSeat=false;
 
     public function __construct(){
         $this->getCon();
@@ -102,14 +103,15 @@ class Booking  {
             echo "Error deleting record: " . $link->error;
         }
     }
-
-    public function getSeats($numseat, $moviesT)//supports only seat availability with no Theatre halls checking
+    
+     public function getSeats($numseat, $moviesT) //supports only seat availability with no Theatre halls checking
     {
         if($result = mysqli_query($this->getCon(), $this->fetchbookingTable())){
             if(mysqli_num_rows($result) > 0){
                 while($row = mysqli_fetch_array($result)){
                    if ($row[9] == $numseat && $moviesT == $row[1]){
                     echo ' reserved seat';
+                    //echo $this->isReservedSeat;
                 }
                 } 
                 mysqli_free_result($result);
@@ -117,6 +119,35 @@ class Booking  {
         }
     }
 
+    public function isReserved($numseat, $moviesT)
+    {
+        if($result = mysqli_query($this->getCon(), $this->fetchbookingTable())){
+            if(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_array($result)){
+                   if ($row[9] == $numseat && $moviesT == $row[1]){
+                    $this->isReservedSeat=true;
+                    return $this->isReservedSeat;
+                } else {$this->isReservedSeat=false; 
+                    //return $this->isReservedSeat;
+                       }
+                } 
+                mysqli_free_result($result);
+            }
+        }
+        //return true;
+    }
+
+    public function setSeatSelection($moviesTable)
+    {
+       echo '<option value="" disabled selected>Seat</option>';
+       echo '<option value="1">1' . " " . $this->getSeats(1,$moviesTable->getMovieTitle()) . '</option>';
+       echo '<option value="2">2' . $this->getSeats(2,$moviesTable->getMovieTitle()) . '</option>';
+       echo '<option value="3">3' . $this->getSeats(3,$moviesTable->getMovieTitle()) . '</option>';
+       echo '<option value="4">4' . $this->getSeats(4,$moviesTable->getMovieTitle()) . '</option>';
+       echo '<option value="5">5' . $this->getSeats(5,$moviesTable->getMovieTitle()) . '</option>';
+      // echo '<option value="6">'. $moviesTable->getMovieTitle() .'</option>';
+    }
+    
     public function getMovieTheatre()//future work for per theatre check availability?
     {
         if($result = mysqli_query($this->getCon(), $this->fetchbookingTable())){
