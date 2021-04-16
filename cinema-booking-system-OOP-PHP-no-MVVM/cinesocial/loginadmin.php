@@ -1,7 +1,6 @@
 <?php
 	$error_array = array(); //Holds error messages
 	require 'config/config.php';
-	//session_destroy();	
 	require 'includes/form_handlers/login_handleradmin.php';
 ?>
 

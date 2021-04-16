@@ -18,22 +18,28 @@ class Movies {
 	public function getMovieList() {
 		if($result = mysqli_query($this->con, $this->sqlMovieTable)){
 			if(mysqli_num_rows($result) > 0){
-				for ($i = 0; $i <= 5; $i++){
-					$row = mysqli_fetch_array($result);
-					echo '<div class="movie-box">';
-					echo '<img src="'. $row['movieImg'] .'" alt=" ">';
+				while($row = mysqli_fetch_array($result)){
+					//$row = mysqli_fetch_array($result); with for
+					echo '<div class="movie-box">';echo"\r\n";
+					echo '<img src="'. $row['movieImgCover'] .'" alt="'. $row['movieTitle'] . '">';
+                    echo"\r\n";
 					echo '<div class="movie-info ">';
+                    echo"\r\n";
 					echo '<h3>'. $row['movieTitle'] .'</h3>';
+                    echo"\r\n";
 					echo '<a href="booking.php?id='.$row['movieID'].'"><i class="fas fa-ticket-alt"></i> Book a seat</a>';
+                    echo"\r\n";
 					echo '</div>';
+                    echo"\r\n";
 					echo '</div>';
+                    echo"\r\n";
 				}
 				mysqli_free_result($result);
 			} else{
 				echo '<h4 class="no-annot">No Booking to our movies right now</h4>';
 			}
 		} else{
-			echo "ERROR: Could not able to execute $this->sqlMovieTable. " . mysqli_error($con);
+			echo "ERROR: Could not able to execute $this->sqlMovieTable. " . mysqli_error($this->con);
 		}
 		
 		// Close connection
@@ -75,7 +81,7 @@ class Movies {
    
     public function initMovieImg()
     {
-        echo '<img src="'.$this->row['movieImg'].'" alt="">';
+        echo '<img src="'.$this->row['movieImgCover'].'" alt="'. $this->row['movieTitle'] . '">';
     }
 
     public function initMovieGenre()
@@ -139,9 +145,36 @@ class Movies {
                                         '".$_POST["seat"]."')";
                         mysqli_query($this->link,$insert_query);
                         //ob_end_flush();
+                        //header("Location: booking.php?uploadsuccess");
                         echo '<meta http-equiv="refresh" content="1">';//refresh page so no RESEND data in DATABASE after submit
                         }
     }
 
+    public function addTrailerFront(){
+
+        if($result = mysqli_query(User::getConS(), $this->sqlMovieTable)){
+            if(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_array($result)){
+
+                      echo  '<div class="trailers-grid-item">';echo"\r\n";
+                          echo  "<img src=".$row['movieImgPrev']." alt=".$row['movieTitle'].">";
+                          echo"\r\n";
+                          echo  '<div class="trailer-item-info"'; 
+                          echo"\r\n";
+                          echo "data-video=".$row['urlPath'].">";
+                          echo"\r\n";
+                              echo  "<h3>".$row['movieTitle']."</h3>";
+                              echo"\r\n";
+                              echo  '<i class="far fa-3x fa-play-circle"></i>';
+                              echo"\r\n";
+                    echo '</div>';echo"\r\n";
+                 echo '</div>';echo"\r\n";
+                        //echo '<div>test</div>';
+                } 
+                mysqli_free_result($result);
+            }
+        }  
+     
+    }
 }
 ?>

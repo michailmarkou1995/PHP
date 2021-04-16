@@ -2,6 +2,10 @@
 
 if (strpos($_SERVER['REQUEST_URI'], "admin.php") !== false){
     }
+else if (strpos($_SERVER['REQUEST_URI'], "trailers.php") !== false){}
+else if (strpos($_SERVER['REQUEST_URI'], "bookingAdmin.php") !== false){}
+else if (strpos($_SERVER['REQUEST_URI'], "scheduleAdmin.php") !== false){}
+else if (strpos($_SERVER['REQUEST_URI'], "moviesAdmin.php") !== false){}
 else
 {
     include("includes/classes/Admin.php");
@@ -23,8 +27,8 @@ class Booking  {
         return mysqli_connect("localhost", "root", "", "cinema_db");
     }
     public function fetchbookingTable() {
-        return "SELECT * FROM bookingTable";
-    }
+        return "SELECT * FROM bookingTable ORDER BY bookingID DESC";
+    }//reverse order selection
 
     public function getbookingNo() {
         return mysqli_num_rows(mysqli_query($this->getCon(), $this->fetchbookingTable()));
@@ -72,24 +76,140 @@ class Booking  {
             echo "ERROR: Could not able to execute $this->fetchbookingTable(). " . mysqli_error($bookTable->getCon());
         }
     }
+
+    public function handleBookingsTop() {
+        if($result = mysqli_query($this->getCon(), $this->fetchbookingTable())){
+            if(mysqli_num_rows($result) > 0){
+                for($i = 0; $i < 5; $i++){
+                    $row = mysqli_fetch_array($result);
+                    echo "<div class=\"admin-panel-section-booking-item\">\n";
+                    echo "                            <div class=\"admin-panel-section-booking-response\">\n";
+                    echo "                                <i class=\"fas fa-check accept-booking\" title=\"Verify booking\"></i>\n";
+                    echo "                                <a href='deleteBooking.php?id=".$row['bookingID']."'><i class=\"fas fa-times decline-booking\" title=\"Reject booking\"></i></a>\n";
+                    echo "                            </div>\n";
+                    echo "                            <div class=\"admin-panel-section-booking-info\">\n";
+                    echo "                                <div>\n";
+                    echo "                                    <h3>". $row['movieName'] ."</h3>\n";
+                    echo "                                    <i class=\"fas fa-circle \"></i>\n";
+                    echo "                                    <h4>". $row['bookingTheatre'] ."</h4>\n";
+                    echo "                                    <i class=\"fas fa-circle \"></i>\n";
+                    echo "                                    <h4>". $row['bookingDate'] ."</h4>\n";
+                    echo "                                    <i class=\"fas fa-circle \"></i>\n";
+                    echo "                                    <h4>". $row['bookingTime'] ."</h4>\n";
+                    echo "                                </div>\n";
+                    echo "                                <div>\n";
+                    echo "                                    <h4>". $row['bookingFName'] ." ". $row['bookingLName'] . " Seat No ". $row['seatP'] ."</h4>\n";
+                    echo "                                    <i class=\"fas fa-circle\"></i>\n";
+                    echo "                                    <h4>". $row['bookingPNumber'] ."</h4>\n";
+                    echo "                                </div>\n";
+                    echo "                            </div>\n";
+                    echo "                        </div>";
+                }
+                mysqli_free_result($result);
+            } else{
+                echo '<h4 class="no-annot">No Bookings right now</h4>';
+            }
+        } else{
+            echo "ERROR: Could not able to execute $this->fetchbookingTable(). " . mysqli_error($bookTable->getCon());
+        }
+    }
+
     public static function addMovie(){
-        if(isset($_POST['submit'])){
+        $fileNameNewCover="";
+        $fileNameNewPrev="";
+        if(isset($_POST['submitval'])){
+            $fileCover = $_FILES['movieImgCover'];
+            $filePrev = $_FILES['movieImgPrev'];
+            //print_r($fileCover); //assoc array
+            $filenameCover = $_FILES['movieImgCover']['name'];
+            $filenameCoverTmp = $_FILES['movieImgCover']['tmp_name'];
+            $filenameCoverSize = $_FILES['movieImgCover']['size'];
+            $filenameCoverError = $_FILES['movieImgCover']['error'];
+            $filenameCoverType = $_FILES['movieImgCover']['type'];
+
+            $fileCoverExt = explode('.', $filenameCover);
+            $fileCoverActualExt = strtolower(end($fileCoverExt));
+
+            $allowed = array('jpg','jpeg','png');
+
+            if(in_array($fileCoverActualExt, $allowed)){
+                if($filenameCoverError === 0){
+                    if($filenameCoverSize < 900000)
+                    {//".$_POST["movieTitle"]." .
+                        $fileNameNewCover = $_POST["movieTitle"]. ".". uniqid('', true).  "." . $fileCoverActualExt;
+                        $fileDestinationCover = '../assets/images/movieTableCover/' . $fileNameNewCover;
+                        move_uploaded_file($filenameCoverTmp, $fileDestinationCover);
+                        //header(Location: admin.php?uploadsuccess);
+                    }
+                    else 
+                    {
+                        echo "File size too BIG!";
+                    }
+                } else {
+                    echo "There was an error uploading your file!";
+                }
+            } else {
+                echo "You cannot upload files of this type!";
+            }
+
+            $filenamePrev = $_FILES['movieImgPrev']['name'];
+
+            $filenamePrevTmp = $_FILES['movieImgPrev']['tmp_name'];
+            $filenamePrevSize = $_FILES['movieImgPrev']['size'];
+            $filenamePrevError = $_FILES['movieImgPrev']['error'];
+            $filenamePrevType = $_FILES['movieImgPrev']['type'];
+
+            $filePrevExt = explode('.', $filenamePrev);
+            $filePrevActualExt = strtolower(end($filePrevExt));
+
+            $allowed = array('jpg','jpeg','png');
+
+            if(in_array($filePrevActualExt, $allowed)){
+                if($filenamePrevError === 0){
+                    if($filenamePrevSize < 900000)
+                    {//".$_POST["movieTitle"]." .
+                        $fileNameNewPrev = $_POST["movieTitle"]. ".". uniqid('', true).  "." . $filePrevActualExt;
+                        $fileDestinationPrev = '../assets/images/movieTablePrev/' . $fileNameNewPrev;
+                        move_uploaded_file($filenamePrevTmp, $fileDestinationPrev);
+                        //header(Location: admin.php?uploadsuccess);
+                    }
+                    else 
+                    {
+                        echo "File size too BIG!";
+                    }
+                } else {
+                    echo "There was an error uploading your file!";
+                }
+            } else {
+                echo "You cannot upload files of this type!";
+            }
+//.$_POST['movieImgPrev'].
             $insert_query = "INSERT INTO 
-            movieTable (  movieImg,
+            movieTable (  movieImgCover,
+                          movieImgPrev,
                             movieTitle,
                             movieGenre,
                             movieDuration,
                             movieRelDate,
                             movieDirector,
-                            movieActors)
-            VALUES (        'assets/images/".$_POST['movieImg']."',
+                            movieActors,
+                            urlPath)
+            VALUES (        'assets/images/movieTableCover/".$fileNameNewCover."',
+                             'assets/images/movieTablePrev/".$fileNameNewPrev."',
                             '".$_POST["movieTitle"]."',
                             '".$_POST["movieGenre"]."',
                             '".$_POST["movieDuration"]."',
                             '".$_POST["movieRelDate"]."',
                             '".$_POST["movieDirector"]."',
-                            '".$_POST["movieActors"]."')";
-            mysqli_query(mysqli_connect("localhost", "root", "", "cinema_db"),$insert_query);}
+                            '".$_POST["movieActors"]."',
+                            '".$_POST["url"]."')";
+            mysqli_query(mysqli_connect("localhost", "root", "", "cinema_db"),$insert_query);
+
+
+
+            header("Location: admin.php?uploadsuccess");
+            echo '<meta http-equiv="refresh" content="0">';
+        }   
     }
     public static function delBooking(){
         $id = $_GET['id'];

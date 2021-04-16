@@ -15,5 +15,8 @@ class User {
     public function getCon() {
 		return $this->con;
 	}
+	public static function getConS() {
+		return mysqli_connect("localhost", "root", "", "cinema_db");
+	}
 }
 ?>

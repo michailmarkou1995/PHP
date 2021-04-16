@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Εξυπηρετητής: 127.0.0.1
--- Χρόνος δημιουργίας: 06 Απρ 2021 στις 13:42:43
+-- Χρόνος δημιουργίας: 16 Απρ 2021 στις 19:24:54
 -- Έκδοση διακομιστή: 10.4.18-MariaDB
 -- Έκδοση PHP: 8.0.3
 
@@ -65,7 +65,10 @@ CREATE TABLE `bookingtable` (
 
 INSERT INTO `bookingtable` (`bookingID`, `movieName`, `bookingTheatre`, `bookingType`, `bookingDate`, `bookingTime`, `bookingFName`, `bookingLName`, `bookingPNumber`, `seatP`) VALUES
 (81, 'Captain Marvel', 'main-hall', '2d', '12-3', '09-00', 'Michail', 'Markou', '0000000000', '1'),
-(82, 'Justice League 2021', 'vip-hall', 'imax', '12-3', '09-00', 'MIONTRAGK', 'MARKOU', '1111111111', '2');
+(82, 'Justice League 2021', 'vip-hall', 'imax', '12-3', '09-00', 'MIONTRAGK', 'MARKOU', '1111111111', '2'),
+(134, 'Captain Marvel', 'main-hall', 'imax', '13-3', '15-00', 'sdfgrg', 'sdgsdfg', '77777777', '3'),
+(135, 'Captain Marvel', 'main-hall', '2d', '13-3', '12-00', 'jiji', 'jiji', '111111111111', '2'),
+(136, 'Justice League 2021', 'main-hall', '2d', '14-3', '18-00', 'burakis', 'burakis', '+30690899011', '3');
 
 -- --------------------------------------------------------
 
@@ -97,28 +100,28 @@ INSERT INTO `feedbacktable` (`msgID`, `senderfName`, `senderlName`, `sendereMail
 
 CREATE TABLE `movietable` (
   `movieID` int(11) NOT NULL,
-  `movieImg` varchar(150) NOT NULL,
+  `movieImgCover` varchar(150) NOT NULL,
+  `movieImgPrev` varchar(150) NOT NULL,
   `movieTitle` varchar(100) NOT NULL,
   `movieGenre` varchar(50) NOT NULL,
   `movieDuration` int(11) NOT NULL,
   `movieRelDate` date NOT NULL,
   `movieDirector` varchar(50) NOT NULL,
-  `movieActors` varchar(150) NOT NULL
+  `movieActors` varchar(150) NOT NULL,
+  `urlPath` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Άδειασμα δεδομένων του πίνακα `movietable`
 --
 
-INSERT INTO `movietable` (`movieID`, `movieImg`, `movieTitle`, `movieGenre`, `movieDuration`, `movieRelDate`, `movieDirector`, `movieActors`) VALUES
-(1, 'assets/images/movie-poster-1.jpg', 'Captain Marvel', ' Action, Adventure, Sci-Fi ', 220, '2018-10-18', 'Anna Boden, Ryan Fleck', 'Brie Larson, Samuel L. Jackson, Ben Mendelsohn, Annette Bening'),
-(2, 'assets/images/movie-poster-2.jpg', 'Justice League 2021', ' Action, Adventure, Fantasy', 245, '2021-03-18', 'Zack Snyder', 'Ben Affleck, Henry Cavill, Amy Adams, Gal Gadot, Ray Fisher, Jason Momoa'),
-(3, 'assets/images/movie-poster-3.jpg', 'Avengers Endgame', ' Action, Adventure, Drama ', 185, '2019-04-24', 'Anthony Russo, Joe Russo', 'Mark Ruffalo, Scarlett Johansson, Jeremy Renner, Chris Evans'),
-(4, 'assets/images/movie-poster-4.jpg', 'Avengers ininity war', ' Action, Adventure, Sci-Fi ', 160, '2018-04-26', 'Anthony Russo, Joe Russo', 'Mark Ruffalo, Scarlett Johansson, Jeremy Renner, Chris Evans'),
-(5, 'assets/images/movie-poster-5.jpg', 'Inception', ' Action, Adventure, Sci-Fi ', 160, '2010-08-24', 'Christopher Nolan', 'Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page'),
-(6, 'assets/images/movie-poster-6.jpg', 'Interstellar', ' Drama, Adventure, Sci-Fi ', 180, '2014-11-06', 'Christopher Nolan', 'Matthew McConaughey, Anne Hathaway, Jessica Chastain'),
-(12, 'assets/images/', 'MyLife', 'horro', 220, '2021-03-11', 'me', 'me'),
-(16, 'assets/images/', 'testt', 'testt', 222, '2021-03-25', 'ee', 'ee');
+INSERT INTO `movietable` (`movieID`, `movieImgCover`, `movieImgPrev`, `movieTitle`, `movieGenre`, `movieDuration`, `movieRelDate`, `movieDirector`, `movieActors`, `urlPath`) VALUES
+(1, 'assets/images/movieTableCover/movie-poster-1.jpg', 'assets/images/movieTablePrev/movie-thumb-1.jpg', 'Captain Marvel', ' Action, Adventure, Sci-Fi ', 220, '2018-10-18', 'Anna Boden, Ryan Fleck', 'Brie Larson, Samuel L. Jackson, Ben Mendelsohn, Annette Bening', 'Z1BCujX3pw8'),
+(2, 'assets/images/movieTableCover/movie-poster-2.jpg', 'assets/images/movieTablePrev/movie-thumb-2.jpg', 'Justice League 2021', ' Action, Adventure, Fantasy', 245, '2021-03-18', 'Zack Snyder', 'Ben Affleck, Henry Cavill, Amy Adams, Gal Gadot, Ray Fisher, Jason Momoa', 'vM-Bja2Gy04'),
+(3, 'assets/images/movieTableCover/movie-poster-3.jpg', 'assets/images/movieTablePrev/movie-thumb-3.jpg', 'Avengers Endgame', ' Action, Adventure, Drama ', 185, '2019-04-24', 'Anthony Russo, Joe Russo', 'Mark Ruffalo, Scarlett Johansson, Jeremy Renner, Chris Evans', '6ZfuNTqbHE8'),
+(4, 'assets/images/movieTableCover/movie-poster-4.jpg', 'assets/images/movieTablePrev/movie-thumb-4.jpg', 'Avengers ininity war', ' Action, Adventure, Sci-Fi ', 160, '2018-04-26', 'Anthony Russo, Joe Russo', 'Mark Ruffalo, Scarlett Johansson, Jeremy Renner, Chris Evans', 'TcMBFSGVi1c'),
+(5, 'assets/images/movieTableCover/movie-poster-5.jpg', 'assets/images/movieTablePrev/movie-thumb-5.jpg', 'Inception', ' Action, Adventure, Sci-Fi ', 160, '2010-08-24', 'Christopher Nolan', 'Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page', 'YoHD9XEInc0'),
+(6, 'assets/images/movieTableCover/movie-poster-6.jpg', 'assets/images/movieTablePrev/movie-thumb-6.jpg', 'Interstellar', ' Drama, Adventure, Sci-Fi ', 180, '2014-11-06', 'Christopher Nolan', 'Matthew McConaughey, Anne Hathaway, Jessica Chastain', 'zSWdZVtXT7E');
 
 -- --------------------------------------------------------
 
@@ -203,7 +206,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT για πίνακα `bookingtable`
 --
 ALTER TABLE `bookingtable`
-  MODIFY `bookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `bookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
 
 --
 -- AUTO_INCREMENT για πίνακα `feedbacktable`
@@ -215,7 +218,7 @@ ALTER TABLE `feedbacktable`
 -- AUTO_INCREMENT για πίνακα `movietable`
 --
 ALTER TABLE `movietable`
-  MODIFY `movieID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `movieID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT για πίνακα `users`

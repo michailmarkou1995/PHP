@@ -4,7 +4,12 @@ session_start();
 
 $timezone = date_default_timezone_set("Europe/London");
 
-$con = mysqli_connect("localhost", "root", "", "cinema_db"); //Connection variable
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "cinema_db";
+
+$con = mysqli_connect($servername, $username, $password, $dbname); //Connection variable
 
 if(mysqli_connect_errno()) 
 {

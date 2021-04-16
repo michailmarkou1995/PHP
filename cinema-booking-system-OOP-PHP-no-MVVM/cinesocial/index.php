@@ -52,54 +52,13 @@
             <div class="service-item"></div>
         </div>
     </div>
-
+   
     <div id="home-section-3" class="trailers-section">
         <h1 class="section-title">Explore new movies</h1>
         <h3>Now showing</h3>
         <div class="trailers-grid">
-            <div class="trailers-grid-item">
-                <img src="assets/images/movie-thumb-1.jpg" alt="Captain Marvel">
-                <div class="trailer-item-info" data-video="Z1BCujX3pw8">
-                    <h3>Captain Marvel</h3>
-                    <i class="far fa-3x fa-play-circle"></i>
-                </div>
-            </div>
-            <div class="trailers-grid-item">
-                <img src="assets/images/movie-thumb-2.jpg" alt="Justice League 2021">
-                <div class="trailer-item-info" data-video="vM-Bja2Gy04">
-                    <h3>Justice League 2021</h3>
-                    <i class="far fa-3x fa-play-circle"></i>
-                </div>
-            </div>
-            <div class="trailers-grid-item">
-                <img src="assets/images/movie-thumb-3.jpg" alt="Avengers infinity war">
-                <div class="trailer-item-info" data-video="6ZfuNTqbHE8">
-                    <h3>Avengers infinity war</h3>
-                    <i class="far fa-3x fa-play-circle"></i>
-                </div>
-            </div>
-            <div class="trailers-grid-item">
-                <img src="assets/images/movie-thumb-4.jpg" alt="Avenger endgame">
-                <div class="trailer-item-info" data-video="TcMBFSGVi1c">
-                    <h3>Avenger endgame</h3>
-                    <i class="far fa-3x fa-play-circle"></i>
-                </div>
-            </div>
-            <div class="trailers-grid-item">
-                <img src="assets/images/movie-thumb-5.jpg" alt="Inception">
-                <div class="trailer-item-info" data-video="YoHD9XEInc0">
-                    <h3>Inception</h3>
-                    <i class="far fa-3x fa-play-circle"></i>
-                </div>
-            </div>
-            <div class="trailers-grid-item">
-                <img src="assets/images/movie-thumb-6.jpg" alt="Interstellar">
-                <div class="trailer-item-info" data-video="zSWdZVtXT7E">
-                    <h3>Interstellar</h3>
-                    <i class="far fa-3x fa-play-circle"></i>
-                </div>
-            </div>
-        </div>
+        <?php $moviesTable->addTrailerFront(); ?>
+        </div> 
     </div>
     <footer></footer>
 
