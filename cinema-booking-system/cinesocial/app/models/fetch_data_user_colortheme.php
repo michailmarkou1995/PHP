@@ -22,7 +22,7 @@ if ($form_data->action == 'getcolor') {
 elseif ($form_data->action == 'setcolor') {
     $query = "
     UPDATE usersettingstable 
-    SET user_fk='".$form_data->user_profile."', colortheme='".$form_data->color."'
+    SET colortheme='".$form_data->color."' WHERE user_fk='".$form_data->user_profile."'
     ";
     $statement = $connect->prepare($query);
     if($statement->execute())
