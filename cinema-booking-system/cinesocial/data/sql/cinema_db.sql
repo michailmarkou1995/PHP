@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Εξυπηρετητής: 127.0.0.1
--- Χρόνος δημιουργίας: 10 Μάη 2021 στις 14:01:41
+-- Χρόνος δημιουργίας: 10 Μάη 2021 στις 16:05:41
 -- Έκδοση διακομιστή: 10.4.18-MariaDB
 -- Έκδοση PHP: 8.0.3
 
@@ -67,8 +67,10 @@ CREATE TABLE `bookingtable` (
 --
 
 INSERT INTO `bookingtable` (`bookingID`, `movieName_fk`, `bookingTheatre_fk`, `bookingTheatreHall_fk`, `bookingType_fk`, `bookingDate_fk`, `bookingTime_fk`, `bookingFName`, `bookingLName`, `bookingPNumber`, `bookingAccount_fk`, `seatP`, `price`) VALUES
-(304, 'Avengers infinity war', 'odeon', 'main-hall poseidon', '3d', '2021-04-17', '13:00', 'Michail', 'Markou', '+306908990119', 'Backtrackpower@gmail.com', '1', ''),
-(305, 'Avengers infinity war', 'odeon', 'main-hall poseidon', '3d', '2021-04-17', '13:00', 'MIONTRAGK', 'MARKOU', '+306908990119', 'Backtrackpower@gmail.com', '10', '');
+(2, 'Justice League 2021', 'odeon', 'main-hall poseidon', 'imax', '2021-04-02', '14:00', 'MIONTRAGK', 'MARKOU', '1111111111', 'Backtrackpower@gmail.com', '2', ''),
+(3, 'Avengers Endgame', 'odeon', 'main-hall poseidon', 'imax', '2021-04-02', '14:00', 'bourakis', 'bourakis', '111111111111', 'anonymous', '2', ''),
+(4, 'Avengers Endgame', 'odeon', 'vip poseidon', 'imax', '2021-04-02', '14:00', 'bourakis', 'bourakis', '111111111111', 'anonymous', '2', ''),
+(306, 'Avengers infinity war', 'odeon', 'main-hall poseidon', '3d', '2021-04-16', '09:00', 'Michail', 'Markou', '+306908990119', 'Backtrackpower@gmail.com', '2', '');
 
 -- --------------------------------------------------------
 
@@ -87,11 +89,9 @@ CREATE TABLE `datetable` (
 
 INSERT INTO `datetable` (`id`, `date_uniq`) VALUES
 (11, '2020-04-03'),
-(21, '2020-04-17'),
 (1, '2021-04-01'),
 (2, '2021-04-02'),
-(19, '2021-04-16'),
-(22, '2021-04-17');
+(19, '2021-04-16');
 
 -- --------------------------------------------------------
 
@@ -152,8 +152,8 @@ CREATE TABLE `hallstable` (
 INSERT INTO `hallstable` (`id`, `tName_fk`, `date_added`, `removed`, `hallName`, `hallType`, `seatsAvailable`, `hall_id`) VALUES
 (2, 'odeon', '2021-04-17 12:52:58', 'no', 'main-hall poseidon', '3d', 50, 1),
 (4, 'odeon', '2021-04-17 12:52:58', 'no', 'vip poseidon', '3d', 50, 1),
-(37, 'cinerama', '2020-10-10 00:00:00', 'no', 'main-hall iason', 'imax', 25, 1),
-(38, 'odeon', '2020-10-10 00:00:00', 'no', 'main-hall artemis', 'imax', 25, 1);
+(8, 'test3', '2021-04-17 12:52:58', 'no', 'vip artemis', 'imax', 25, 2),
+(9, 'test3', '2021-04-17 12:52:58', 'no', 'main-hall artemis', 'imax', 25, 2);
 
 -- --------------------------------------------------------
 
@@ -212,10 +212,17 @@ CREATE TABLE `scheduletable` (
 --
 
 INSERT INTO `scheduletable` (`id`, `movie_play_fk`, `date_play_fk`, `time_play`, `duration_play_fk`, `theatre_name_fk`, `hall_name_fk`, `hall_type_fk`, `movie_synopsis`, `urlPath_fk`, `admin_fk`) VALUES
-(87, 'captain marvel', '2021-04-16', '09:00', 245, 'odeon', 'main-hall artemis', 'imax', 'EPIC MOVIE', 'Z1BCujX3pw8', 'admin'),
-(89, 'avengers infinity war', '2021-04-17', '13:00', 245, 'odeon', 'main-hall poseidon', '3d', 'epic battle', 'Z1BCujX3pw8', 'admin'),
-(90, 'captain marvel', '2021-04-16', '13:00', 245, 'odeon', 'main-hall artemis', '3d', 'WOWWWW', 'Z1BCujX3pw8', 'admin'),
-(91, 'avengers infinity war', '2020-04-17', '09:00', 245, 'odeon', 'main-hall poseidon', '3d', 'Yyoupi', 'Z1BCujX3pw8', 'admin');
+(3, 'Justice League 2021', '2021-04-01', '09:00', 245, 'test3', 'main-hall artemis', 'imax', 'Ethan and team take on their most impossible mission yet, eradicating the Syndicate - an International rogue organization', 'vM-Bja2Gy04', 'admin'),
+(4, 'Avengers Endgame', '2021-04-02', '13:00', 245, 'odeon', 'vip poseidon', '3d', 'Ethan and team take on their most impossible mission yet, eradicating the Syndicate - an International rogue organization', '6ZfuNTqbHE8', 'admin'),
+(24, 'Avengers infinity war', '2021-04-02', '13:00', 245, 'odeon', 'vip poseidon', '3d', 'Ethan and team take on their most impossible mission yet, eradicating the Syndicate - an International rogue organization', '6ZfuNTqbHE8', 'admin'),
+(27, 'Captain Marvel', '2020-04-03', '09:00', 245, 'test3', 'vip artemis', 'imax', 'aadsada', 'Z1BCujX3pw8', 'admin'),
+(29, 'Captain Marvel', '2020-04-03', '09:00', 245, 'odeon', 'main-hall poseidon', '3d', 'aadsada', 'Z1BCujX3pw8', 'admin'),
+(45, 'Captain Marvel', '2020-04-03', '09:00', 245, 'odeon', 'vip poseidon', '3d', 'avd', 'Z1BCujX3pw8', 'admin'),
+(70, 'Avengers infinity war', '2021-04-16', '09:00', 245, 'odeon', 'main-hall poseidon', '3d', 'aadsada', 'Z1BCujX3pw8', 'admin'),
+(71, 'Avengers infinity war', '2021-04-16', '13:00', 245, 'test3', 'vip artemis', 'imax', 'Ethan and team take on their most impossible mission yet, eradicating the Syndicate - an International rogue organization', '6ZfuNTqbHE8', 'admin'),
+(72, 'Avengers infinity war', '2021-04-02', '14:00', 245, 'test3', 'vip artemis', 'imax', 'Ethan and team take on their most impossible mission yet, eradicating the Syndicate - an International rogue organization', '6ZfuNTqbHE8', 'admin'),
+(73, 'Avengers infinity war', '2021-04-02', '13:00', 245, 'test3', 'main-hall artemis', 'imax', 'Ethan and team take on their most impossible mission yet, eradicating the Syndicate - an International rogue organization', '6ZfuNTqbHE8', 'admin'),
+(92, 'Avengers infinity war', '2021-04-16', '09:00', 245, 'test3', 'vip artemis', 'imax', 'Ethan and team take on their most impossible mission yet, eradicating the Syndicate - an International rogue organization', '6ZfuNTqbHE8', 'admin');
 
 -- --------------------------------------------------------
 
@@ -242,6 +249,25 @@ INSERT INTO `test` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Δομή πίνακα για τον πίνακα `test1`
+--
+
+CREATE TABLE `test1` (
+  `increase` int(11) NOT NULL,
+  `names` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Άδειασμα δεδομένων του πίνακα `test1`
+--
+
+INSERT INTO `test1` (`increase`, `names`) VALUES
+(5, 'dasd'),
+(6, 'dasd');
+
+-- --------------------------------------------------------
+
+--
 -- Δομή πίνακα για τον πίνακα `theatretable`
 --
 
@@ -259,6 +285,7 @@ CREATE TABLE `theatretable` (
 
 INSERT INTO `theatretable` (`id`, `tName_pk`, `tHalls`, `tAvailable`, `admin_tk`) VALUES
 (1, 'odeon', 15, 1, 'admin'),
+(6, 'test3', 15, 1, 'admin'),
 (13, 'cinerama', 20, 1, 'admin');
 
 -- --------------------------------------------------------
@@ -305,10 +332,10 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `pass
 --
 
 CREATE TABLE `usersettingstable` (
-  `id` int(100) NOT NULL,
-  `user_fk` varchar(100) DEFAULT NULL,
-  `colortheme` varchar(11) NOT NULL DEFAULT '#FFF',
-  `typography` varchar(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `user_fk` varchar(100) NOT NULL,
+  `colortheme` varchar(10) NOT NULL DEFAULT '#FFF',
+  `typography` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -316,7 +343,8 @@ CREATE TABLE `usersettingstable` (
 --
 
 INSERT INTO `usersettingstable` (`id`, `user_fk`, `colortheme`, `typography`) VALUES
-(1, 'Backtrackpower@gmail.com', '#FFF', '');
+(1, 'Backtrackpower@gmail.com', '#FFF', ''),
+(3, 'Sylvimarkou@hotmail.com', '#FFF', '');
 
 --
 -- Ευρετήρια για άχρηστους πίνακες
@@ -408,6 +436,12 @@ ALTER TABLE `test`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Ευρετήρια για πίνακα `test1`
+--
+ALTER TABLE `test1`
+  ADD PRIMARY KEY (`increase`);
+
+--
 -- Ευρετήρια για πίνακα `theatretable`
 --
 ALTER TABLE `theatretable`
@@ -427,7 +461,8 @@ ALTER TABLE `users`
 --
 ALTER TABLE `usersettingstable`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `user_fk` (`user_fk`);
+  ADD UNIQUE KEY `user_fk` (`user_fk`),
+  ADD KEY `colortheme` (`colortheme`);
 
 --
 -- AUTO_INCREMENT για άχρηστους πίνακες
@@ -437,7 +472,7 @@ ALTER TABLE `usersettingstable`
 -- AUTO_INCREMENT για πίνακα `bookingtable`
 --
 ALTER TABLE `bookingtable`
-  MODIFY `bookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=306;
+  MODIFY `bookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=307;
 
 --
 -- AUTO_INCREMENT για πίνακα `datetable`
@@ -455,7 +490,7 @@ ALTER TABLE `discounttable`
 -- AUTO_INCREMENT για πίνακα `feedbacktable`
 --
 ALTER TABLE `feedbacktable`
-  MODIFY `msgID` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `msgID` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT για πίνακα `hallstable`
@@ -467,19 +502,25 @@ ALTER TABLE `hallstable`
 -- AUTO_INCREMENT για πίνακα `movietable`
 --
 ALTER TABLE `movietable`
-  MODIFY `movieID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `movieID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
 -- AUTO_INCREMENT για πίνακα `scheduletable`
 --
 ALTER TABLE `scheduletable`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT για πίνακα `test`
 --
 ALTER TABLE `test`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT για πίνακα `test1`
+--
+ALTER TABLE `test1`
+  MODIFY `increase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT για πίνακα `theatretable`
@@ -497,7 +538,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT για πίνακα `usersettingstable`
 --
 ALTER TABLE `usersettingstable`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Περιορισμοί για άχρηστους πίνακες
