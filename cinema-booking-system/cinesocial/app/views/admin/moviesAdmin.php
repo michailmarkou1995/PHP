@@ -225,7 +225,7 @@ $admincon = new Admin();
             </div>
         </div>
     </div>
-    <div ng-repeat="name in namesData">{{name.movieTitle}}</div>
+    <!-- <div ng-repeat="name in namesData">{{name.movieTitle}}</div>
     <div class="col-md-4">
         <input type="file" file-input="files" />
     </div>
@@ -235,8 +235,7 @@ $admincon = new Admin();
     <br /><br />
     <div class="col-md-3" ng-repeat="imagee in imagess">
         <img ng-src="../assets/images/{{imagee.name}}" width="200" height="200" style="padding:16px; border:1px solid #f1f1f1; margin:16px;" />
-    </div>
-    </div>
+    </div> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="../../../web/js/script.js "></script>
 </body>

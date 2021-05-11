@@ -32,15 +32,12 @@ moviesAdminApp.controller('crudMoviesController', ['$scope', 'DTOptionsBuilder',
                     transformRequest: angular.identity,
                     headers: { 'Content-Type': undefined, 'Process-Data': false }
                }).then(function (response) {
-                    console.log(response + 'hi');
-                    alert(response);
                     $scope.select();
                });
      }
      $scope.select = function () {
           $http.get("select.php")
                .then(function (response) {
-                    console.log(response.data);
                     $scope.imagess = response.data;
                });
      }
@@ -74,6 +71,7 @@ moviesAdminApp.controller('crudMoviesController', ['$scope', 'DTOptionsBuilder',
      };
 
      $scope.addData = function () {
+          alert('This Feature is Under Development may not work as expected');
           $scope.modalTitle = 'Add Data';
           $scope.submit_button = 'Insert';
           $scope.openModal();
@@ -91,7 +89,6 @@ moviesAdminApp.controller('crudMoviesController', ['$scope', 'DTOptionsBuilder',
                     'movieDuration': $scope.movieDuration, 'movieRelDate': $scope.movieRelDate, 'movieDirector': $scope.movieDirector, 'movieActors': $scope.movieActors, 'urlPath': $scope.urlPath, 'action': $scope.submit_button, 'id': $scope.hidden_id
                }
           }).then(function (response) {
-               alert((response.data)); //data
 
                if (response.data.error != '') {
                     $scope.success = false;
@@ -109,12 +106,12 @@ moviesAdminApp.controller('crudMoviesController', ['$scope', 'DTOptionsBuilder',
           });
      };
      $scope.fetchSingleData = function (movieID) {
+          alert('This Feature is Under Development may not work as expected');
           $http({
                method: "POST",
                url: "../../models/insert_movies.php",
                data: { 'id': movieID, 'action': 'fetch_single_data' }
           }).then(function (response) {
-               alert((response.data));
                $scope.movieTitle = response.data.movieTitle;
                $scope.movieGenre = response.data.movieGenre;
                $scope.movieDuration = response.data.movieDuration;
@@ -136,7 +133,6 @@ moviesAdminApp.controller('crudMoviesController', ['$scope', 'DTOptionsBuilder',
                     url: "../../models/insert_movies.php",
                     data: { 'id': movieID, 'action': 'Delete' }
                }).then(function (response) {
-                    alert((response.data));
                     $scope.success = true;
                     $scope.error = false;
                     $scope.successMessage = response.data.message;

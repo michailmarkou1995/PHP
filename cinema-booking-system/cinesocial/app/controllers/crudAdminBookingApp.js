@@ -490,7 +490,12 @@ crudBookingApp.controller('crudBookingController', ['$scope', '$q', 'DTOptionsBu
 
         if ($scope.generalTheatre && $scope.generalHall && $scope.generalHallType && $scope.generalDate && $scope.generalTime && $scope.generalMovie) {
             for (i = 0; i <= length; i++) {
-                if (id == $scope.rest_info_general[i][0].hall_type_fk && $scope.rest_info_general[i][0].time_play == $scope.listName_Time.toString() && $scope.rest_info_general[i][0].movie_play_fk == $scope.listName_movie.toString() && $scope.rest_info_general[i][0].hall_name_fk == $scope.listName_hall.toString() && $scope.rest_info_general[i][0].date_play_fk == $scope.listName_date.toString() && isCheck_HT_S == false) {
+                if (id == $scope.rest_info_general[i][0].hall_type_fk 
+                    && $scope.rest_info_general[i][0].time_play == $scope.listName_Time.toString() 
+                    && $scope.rest_info_general[i][0].movie_play_fk == $scope.listName_movie.toString() 
+                    && $scope.rest_info_general[i][0].hall_name_fk == $scope.listName_hall.toString() 
+                    && $scope.rest_info_general[i][0].date_play_fk == $scope.listName_date.toString() 
+                    && isCheck_HT_S == false) {
                     $q.all([$scope.promise(i), $scope.promise1(i)]).then(function (responses) {
                         //promise
                         $scope.SeatsSub = [];
