@@ -90,8 +90,6 @@ $moviesTable->initBooking();
                     <select ng-model="hall_type_is" ng-change="updateHallType(hall_type_is)" ng-options="key.hall_type_fk for key in list_HT_4" required>
                         <option value="" disabled selected>TYPE</option>
                     </select>
-                    <?php //$books= new Booking(); 
-                    ?>
 
                     <select ng-model="seat_is" ng-change="updateSeats(seat_is)" data-ng-options="key for key in list_S_6" required>
                         <!--join-->
@@ -105,9 +103,6 @@ $moviesTable->initBooking();
                     <input placeholder="Phone Number" type="text" name="pnumber" ng-model="phone_number" required />
 
                     <button type="submit" name="submit" id="submit" class="form-btn" value="submit">Book a Seat</button>
-                    <?php
-                    //  $moviesTable->initMovieSubmit();
-                    ?>
                 </form>
 
                 <div class="container">

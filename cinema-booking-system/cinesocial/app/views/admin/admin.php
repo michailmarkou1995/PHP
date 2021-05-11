@@ -4,7 +4,6 @@ require_once '../../../system/classes/Booking.php';
 require '../../../system/classes/Updatehandling.php';
 
 $admincon = new Admin();
-//echo $_SESSION['usernamea'] to $username ferni root apo database name login!
 ?>
 
 <!DOCTYPE html>
@@ -96,41 +95,44 @@ $admincon = new Admin();
                         <input placeholder="Director" type="text" name="movieDirector" required>
                         <input placeholder="Actors" type="text" name="movieActors" required>
                         <input placeholder="youtube url end e.g. vM-Bja2Gy04" type="text" name="url" required>
-                        
-                    <div class="admin-section-panel admin-section-panel4">
-                    <div class="admin-panel-section-header">
-                        <h2>Cover Movie(up in front page)</h2>             
-                    </div>
-                        <!--<div>Movie Cover</div>-->
-                        <input type="file" name="movieImgCover" accept="image/*" required >
-                        </div>
-                    
+
                         <div class="admin-section-panel admin-section-panel4">
-                    <div class="admin-panel-section-header">
-                        <h2>Preview Movie(down in front-page)</h2>             
-                    </div>
-                        <!--<label for="files">Select file</label>
-                        <div><br>Movie Preview</div>-->
-                        <input type="file" name="movieImgPrev" accept="image/*" required ><!--front-end check-->
+                            <div class="admin-panel-section-header">
+                                <h2>Cover Movie(up in front page)</h2>
+                            </div>
+                            <!--<div>Movie Cover</div>-->
+                            <input type="file" name="movieImgCover" accept="image/*" required>
                         </div>
-                   
+
+                        <div class="admin-section-panel admin-section-panel4">
+                            <div class="admin-panel-section-header">
+                                <h2>Preview Movie(down in front-page)</h2>
+                            </div>
+                            <!--<label for="files">Select file</label>
+                        <div><br>Movie Preview</div>-->
+                            <input type="file" name="movieImgPrev" accept="image/*" required>
+                            <!--front-end check-->
+                        </div>
+
                         <button type="submit" value="submit" name="submitval" class="form-btn">Add Movie</button>
                         <?php
-                            //$bookTable->addMovie();
-                            UpdateHandlings::addMovie();
+                        //$bookTable->addMovie();
+                        UpdateHandlings::addMovie();
                         ?>
                     </form>
                 </div>
             </div>
             <div class="admin-section-column">
-            <div class="admin-section-panel admin-section-panel4">
+                <div class="admin-section-panel admin-section-panel4">
                     <div class="admin-panel-section-header">
                         <h2>Portal instructions</h2>
                         <i class="fas fa-list-ol" style="background-color: #cf4545"></i>
                     </div>
                     <div style="color: red"><b>Admin portal is fully dynamic for Front-end page you can literraly manage from here EVERYTHING!</b></div>
                     <br>
-                    <p>in</p> <div style="color: red">Add movies</div> <div>Sections you get a YouTube URL in Format of https://www.youtube.com/watch?v=Z1BCujX3pw8 AND you extract the v=Z1BCujX3pw8 part this is what you put in the Url field</div>
+                    <p>in</p>
+                    <div style="color: red">Add movies</div>
+                    <div>Sections you get a YouTube URL in Format of https://www.youtube.com/watch?v=Z1BCujX3pw8 AND you extract the v=Z1BCujX3pw8 part this is what you put in the Url field</div>
                 </div>
                 <div class="admin-section-panel admin-section-panel4">
                     <div class="admin-panel-section-header">
@@ -148,9 +150,8 @@ $admincon = new Admin();
             </div>
         </div>
     </div>
-    
-    <script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="../../../web/js/script.js "></script>
 </body>

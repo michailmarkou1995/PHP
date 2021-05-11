@@ -19,4 +19,3 @@ if($form_data->action == 'Delete')
 }
 
 echo json_encode($output);
-?>

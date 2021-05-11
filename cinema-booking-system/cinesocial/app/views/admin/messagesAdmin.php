@@ -2,7 +2,7 @@
 require_once '../../../system/classes/Admin.php';
 require_once '../../../system/classes/Booking.php';
 require_once '../../../system/classes/Updatehandling.php';
-$admincon = new Admin(); //theli remove? include prev page?
+$admincon = new Admin();
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +17,6 @@ $admincon = new Admin(); //theli remove? include prev page?
     <link rel="stylesheet" href="../../../web/css/style-main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
-    <!--<script src="../assets/js/jquery-3.3.1.min.js "></script> -->
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
@@ -30,23 +28,26 @@ $admincon = new Admin(); //theli remove? include prev page?
 
     <script src="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
-<style>
-    table { 
-    table-layout:fixed;
-}
-td { 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-    word-wrap: break-word;
-}
-@media only screen and (max-width: 480px) {
-    /* horizontal scrollbar for tables if mobile screen */
-    .tablemobile {
-        overflow-x: auto;
-        display: block;
-    }
-}
-</style>
+    <style>
+        table {
+            table-layout: fixed;
+        }
+
+        td {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+        }
+
+        @media only screen and (max-width: 480px) {
+
+            /* horizontal scrollbar for tables if mobile screen */
+            .tablemobile {
+                overflow-x: auto;
+                display: block;
+            }
+        }
+    </style>
 </head>
 
 <body ng-app="crudMessagesApp" ng-controller="crudMessagesController">
@@ -146,13 +147,9 @@ td {
                             </table>
                         </div>
                     </div>
-
-
                 </div>
             </div>
-            <!--</div> -->
         </div>
-        <!--coll div -->
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>

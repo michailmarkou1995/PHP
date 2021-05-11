@@ -13,7 +13,7 @@ if($statement->execute())
 {
  while($row = $statement->fetch(PDO::FETCH_ASSOC))
  {
-  $data[] = $row['date_uniq'];//array case with number to string months? return in json?
+  $data[] = $row['date_uniq'];
  }
  echo json_encode($data);
 }

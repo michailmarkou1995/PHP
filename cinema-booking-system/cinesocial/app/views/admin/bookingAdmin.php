@@ -2,7 +2,7 @@
 require_once '../../../system/classes/Admin.php';
 require_once '../../../system/classes/Booking.php';
 require_once '../../../system/classes/Updatehandling.php';
-$admincon = new Admin(); //theli remove? include prev page?
+$admincon = new Admin();
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +34,6 @@ $admincon = new Admin(); //theli remove? include prev page?
 <body ng-app="crudBookingApp" ng-controller="crudBookingController">
     <?php
     $bookTable = new Booking();
-    //UpdateHandlings::conDb();
     ?>
 
 
@@ -69,9 +68,6 @@ $admincon = new Admin(); //theli remove? include prev page?
                         <form action="" method="POST">
                             <input placeholder="Search Bookings" type="text" name="search-db" required>
                             <button type="submit" value="submit" name="submit" class="form-btn">Search</button>
-                            <?php
-                            //Admin::getResMsg(); just testing never mind
-                            ?>
                         </form>
                     </div>
                 </div>
@@ -83,7 +79,6 @@ $admincon = new Admin(); //theli remove? include prev page?
                     <div class="admin-panel-section-content">
                         <div>
                             <?php
-                            //$bookTable->handleBookings(); //add limit by scrolling? des social pws ekane o allos to site
                             $admincon->getSearch();
                             ?>
                         </div>
@@ -97,8 +92,6 @@ $admincon = new Admin(); //theli remove? include prev page?
                     <div class="admin-panel-section-content">
 
                         <div class="admin-panel-section-content" ng-init="fetchData()">
-                            <?php //$bookTable->bookingTable(); 
-                            ?>
                             <div class="modal fade" tabindex="-1" role="dialog" id="crudmodal">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -350,17 +343,17 @@ $admincon = new Admin(); //theli remove? include prev page?
                         </div>
                     </div>
                 </div>
-            </div><!-- AUTO EDW TO DIV parousiazi to overflow: scroll not working sto ALl bookings !!!! des pu kani match sto container? ADMIN SECTION COLUMN !!!!parent-->
+            </div>
         </div>
-    <script>
-        $(document).ready(function() {
-            $('#information').DataTable({
-                stateSave: true
+        <script>
+            $(document).ready(function() {
+                $('#information').DataTable({
+                    stateSave: true
+                });
             });
-        });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script src="../../../web/js/script.js "></script>
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <script src="../../../web/js/script.js "></script>
 </body>
 
 </html>

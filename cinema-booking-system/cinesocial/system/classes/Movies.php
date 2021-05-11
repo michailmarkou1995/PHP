@@ -19,7 +19,6 @@ class Movies {
 		if($result = mysqli_query($this->con, $this->sqlMovieTable)){
 			if(mysqli_num_rows($result) > 0){
 				while($row = mysqli_fetch_array($result)){
-					//$row = mysqli_fetch_array($result); with for
 					echo '<div class="movie-box">';echo"\r\n";
 					echo '<img src="'. $row['movieImgCover'] .'" alt="'. $row['movieTitle'] . '">';
                     echo"\r\n";
@@ -171,7 +170,6 @@ class Movies {
                               echo"\r\n";
                     echo '</div>';echo"\r\n";
                  echo '</div>';echo"\r\n";
-                        //echo '<div>test</div>';
                 } 
                 mysqli_free_result($result);
             }
@@ -179,4 +177,3 @@ class Movies {
      
     }
 }
-?>

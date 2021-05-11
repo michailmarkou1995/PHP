@@ -9,4 +9,3 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
 // give callback to your angular code with the image src name
     echo json_encode($newfilename);
 }
-?>

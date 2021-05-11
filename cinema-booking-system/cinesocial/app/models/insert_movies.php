@@ -65,7 +65,6 @@ elseif($form_data->action == 'Delete')
   $output['message'] = 'Data Deleted';
  }
 }
-//echo json_encode($output);
 else {
 if(empty($form_data->movieTitle))
 {
@@ -130,49 +129,11 @@ else
  $urlPath = $form_data->urlPath;
 }
 
-/*if(empty($form_data->movieImgCover))
-{
- $error[] = 'movieImgCover is Required';
-}
-else
-{
- $movieImgCover = $form_data->movieImgCover;
-}
-
-if(empty($form_data->movieImgPrev))
-{
- $error[] = 'movieImgPrev is Required';
-}
-else
-{
- $movieImgPrev = $form_data->movieImgPrev;
-}*/
-
-/*if(empty($form_data->movieImgCovericon))
-{
- $error[] = 'movieImgCovericon is Required';
-}
-else
-{
- $movieImgCovericon = $form_data->movieImgCovericon;
-}
-
-if(empty($form_data->movieImgPrevicon))
-{
- $error[] = 'movieImgPrevicon is Required';
-}
-else
-{
- $movieImgPrevicon = $form_data->movieImgPrevicon;
-}*/
-
 if(empty($error))
 {
  if($form_data->action == 'Insert')
  {
   $data = array(
-   //':movieImgCover'  => $movieImgCover,
-   //':movieImgPrev'  => $movieImgPrev,
    ':movieTitle'  => $movieTitle,
    ':movieGenre'  => $movieGenre,
    ':movieDuration'  => $movieDuration,
@@ -185,14 +146,6 @@ if(empty($error))
       ':movieImgCovericon'  => $movieImgCovericon,
       ':movieImgPrevicon'  => $movieImgPrevicon
      );
- //add PICTURES FUNCTION HERE for UPLOAD
- //UpdateHandlings::addPictureCovers('file', 'file', $movieTitle);
- /* $query = "
-  INSERT INTO movietable 
-  (movieImgCover, movieImgPrev, movieTitle, movieGenre, movieDuration, movieRelDate, movieDirector, movieActors, urlPath, admin_fk) VALUES 
-  ('assets/images/movieTableCover/".UpdateHandlings::$fileNameNewCover."',
-  'assets/images/movieTablePrev/".UpdateHandlings::$fileNameNewPrev."', :movieTitle, :movieGenre, :movieDuration, :movieRelDate, :movieDirector, :movieActors, :urlPath, 'admin')
-  "; */
   $query = "
   INSERT INTO movietable 
   (movieTitle, movieGenre, movieDuration, movieRelDate, movieDirector, movieActors, urlPath, admin_fk) VALUES 
@@ -207,8 +160,6 @@ if(empty($error))
 
  if($form_data->action == 'Edit')
  {
-
-       //echo $bookingID .'test';//'test'; first_name and other vars ok
   $data = array(
        ':movieImgCover'  => $movieImgCover,
        ':movieImgPrev'  => $movieImgPrev,
@@ -229,7 +180,6 @@ if(empty($error))
   $statement = $connect->prepare($query);
   if($statement->execute($data))
   {
-   //$message = 'Data Edited';
    $output['message'] = 'Data Edited';
   }
  }
@@ -243,4 +193,3 @@ if(empty($error))
 }
 
 echo json_encode($output);
-?>

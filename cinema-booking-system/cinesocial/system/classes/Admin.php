@@ -59,11 +59,8 @@ class Admin extends User {
             $search = mysqli_real_escape_string(User::getConS(), $_POST['search-db']); //sql injection safe data type data
             $sql="SELECT * FROM bookingTable WHERE bookingFName LIKE '%$search%' OR bookingLName LIKE '%$search%' OR bookingLName LIKE '%$search%' OR bookingLName LIKE '%$search%'";
             $result = mysqli_query(User::getConS(), $sql);
-            //or die(mysqli_error(User::getConS()));
             $queryResult = mysqli_num_rows($result);
-            //echo "There are ". $queryResult." results!";
-            self::$searchRes = "<div style='color:red;'><b>There are ". $queryResult." results!</b></div>"; //div in div letter specific change?
-           // $this->getResMsg();
+            self::$searchRes = "<div style='color:red;'><b>There are ". $queryResult." results!</b></div>"; 
             Admin::getResMsg();
             if($queryResult > 0){
                 while($row = mysqli_fetch_assoc($result))
@@ -73,7 +70,7 @@ class Admin extends User {
             } else { echo 'There are no Results matching your Search';}
         }
     }
-    public static function getResMsg(){//POLLES MATSAKWNIES STRWSE TA FUNCTIONS ta xis dipla tripla ksana idio kwdika FTIAXTA OLA!!!!!!!!!!!!!!!!!!!!!!!! <------ SOS
+    public static function getResMsg(){
         echo self::$searchRes;
     }
     public function getSessionUser(){
@@ -89,4 +86,3 @@ class Admin extends User {
         return $this->user['username'];
     }
 }
-?>

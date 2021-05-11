@@ -24,4 +24,3 @@ if($queryResult > 0){
     }
 } else $data=[];
 echo json_encode($data);
-?>

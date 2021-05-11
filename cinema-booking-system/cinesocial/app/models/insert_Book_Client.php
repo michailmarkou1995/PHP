@@ -132,7 +132,6 @@ if (empty($error)) {
             //$output['alert']='Duplicate Record Denied';
             $alertB='Duplicate Record Denied';
         } else {
-              //else $alertB='LOL';
             $data = array(
    ':first_name'  => $first_name,
    ':last_name'  => $last_name,
@@ -166,4 +165,3 @@ if (empty($error)) {
        'alertB' => $alertB
       );
 echo json_encode($output);
-?>

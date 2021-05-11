@@ -2,7 +2,7 @@
 require_once '../../../system/classes/Admin.php';
 require_once '../../../system/classes/Booking.php';
 require_once '../../../system/classes/Updatehandling.php';
-$admincon = new Admin(); //theli remove? include prev page?
+$admincon = new Admin();
 ?>
 
 <!DOCTYPE html>
@@ -85,11 +85,10 @@ $admincon = new Admin(); //theli remove? include prev page?
                         <i class="fas fa-film" style="background-color: #4547cf"></i>
                     </div>
                     <form action="" method="POST">
-                        <!-- <input placeholder="Name of Theatre" type="text" name="tName_fk" id="tName_fk" required> -->
-                                                    <select class="form-control" name="tName_fk" id="tName_fk" required>
-                                                        <option value="" disabled selected>Name of Theatre</option>
-                                                        <?php UpdateHandlings::getTheatreList(); ?>
-                                                    </select>
+                        <select class="form-control" name="tName_fk" id="tName_fk" required>
+                            <option value="" disabled selected>Name of Theatre</option>
+                            <?php UpdateHandlings::getTheatreList(); ?>
+                        </select>
                         <input placeholder="Hall Name" type="text" name="hallName" id="hallName" required>
                         <input placeholder="Hall Type" type="text" name="hallType" id="hallType" required>
                         <input placeholder="Number of Seats" type="text" name="seatsAvailable" id="seatsAvailable" required>
@@ -118,7 +117,6 @@ $admincon = new Admin(); //theli remove? include prev page?
                         UpdateHandlings::addTheatre();
                         UpdateHandlings::addHalls();
                         UpdateHandlings::addScheduleMovies($admincon->getSessionUser());
-                        //echo UpdateHandlings::getUrlPath("Captain Marvel", "test");
                         ?>
                     </form>
                 </div>
@@ -240,8 +238,6 @@ $admincon = new Admin(); //theli remove? include prev page?
                         </tbody>
                     </table>
                 </div>
-                <!--</div> for seperation see on page-->
-
                 <div class="table-responsive" style="overflow-x: unset;">
                     <table datatable="ng" dt-options="dtOptions" class="table table-striped table-bordered">
                         <thead>

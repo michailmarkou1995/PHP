@@ -12,7 +12,7 @@ if ($form_data->action == 'fetch_single_dataUser') {
     $statement = $connect->prepare($query);
     $statement->execute();
     $result = $statement->fetchAll();
-    foreach ($result as $row) {//EDW tha pekso mpala grami 26 den thes ID thes ola MOVIES omos pws fetch current info? san selected?
+    foreach ($result as $row) {
         $output['first_name'] = $row['bookingFName'];
         $output['last_name'] = $row['bookingLName'];
         $output['movie_name'] = $row['movieName_fk'];
@@ -27,7 +27,7 @@ if ($form_data->action == 'fetch_single_dataUser') {
     }
 }
 if ($form_data->action == 'fetch_single_dataSeat') {
-    $output=[];//midenizi kai xwris auto? ap to proigoumeno run?
+    $output=[];
 
     $query = "SELECT seatP 
     FROM  bookingtable
@@ -50,8 +50,6 @@ if($statement->execute() && $statement1->execute()){
 
 while($row = $statement->fetch(PDO::FETCH_ASSOC)){
     $output['userseat'] = $row['seatP'];
-    //$output[]=$row['seatP'];
-    //$output[]=$row; EDW epistrefi 2 thesis IDIO NAME ama exis reserved alla ama thes constraint 1 name 1 ticket You are good mono condition check oxi deutero reserve kane allios ama thes 1 name multiple tote kane alli stratiki!!!
 }
 while($row = $statement1->fetch(PDO::FETCH_ASSOC)){
     $output[]=$row['seatP'];
@@ -75,4 +73,3 @@ if($statement->execute()){
 }    
 }
 echo json_encode($output);
-?>

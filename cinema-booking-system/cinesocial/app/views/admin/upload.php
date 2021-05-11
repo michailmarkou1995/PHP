@@ -19,5 +19,4 @@
  else  
  {  
       echo 'Some Error';  
- }  
- ?>  
+ }

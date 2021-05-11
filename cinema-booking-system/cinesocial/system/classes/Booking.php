@@ -10,8 +10,7 @@ else if (strpos($_SERVER['REQUEST_URI'], "messagesAdmin.php") !== false){}
 else if (strpos($_SERVER['REQUEST_URI'], "profile.php") !== false){}
 else
 {
-    include("../../system/classes/Admin.php");//ERROR HIT in moviesAdmin php insert_movies.php must FIX when deleteing IMAGE appears try catch errors?
-   // include("../includes/classes/Admin.php");
+    include("../../system/classes/Admin.php");
 }
 
 class Booking  {
@@ -232,10 +231,9 @@ class Booking  {
        echo '<option value="3">3' . $this->getSeats(3,$moviesTable->getMovieTitle()) . '</option>';
        echo '<option value="4">4' . $this->getSeats(4,$moviesTable->getMovieTitle()) . '</option>';
        echo '<option value="5">5' . $this->getSeats(5,$moviesTable->getMovieTitle()) . '</option>';
-      // echo '<option value="6">'. $moviesTable->getMovieTitle() .'</option>';
     }
     
-    public function getMovieTheatre()//future work for per theatre check availability?
+    public function getMovieTheatre()
     {
         if($result = mysqli_query($this->getCon(), $this->fetchbookingTable())){
             if(mysqli_num_rows($result) > 0){
@@ -248,4 +246,3 @@ class Booking  {
         
     }
 }
-?>

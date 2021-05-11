@@ -114,7 +114,7 @@ class UpdateHandlings {
             if(in_array($filePrevActualExt, $allowed)){
                 if($filenamePrevError === 0){
                     if($filenamePrevSize < 900000)
-                    {//".$_POST["movieTitle"]." .
+                    {
                         self::$fileNameNewPrev = $_POST[$movieTitle]. ".". uniqid('', true).  "." . $filePrevActualExt;
                         $fileDestinationPrev = '../../../web/images/movieTablePrev/' . self::$fileNameNewPrev;
                         move_uploaded_file($filenamePrevTmp, $fileDestinationPrev);
@@ -137,9 +137,6 @@ class UpdateHandlings {
         }
     
         public static function del_addPictureCoversx($file_pointer){
-                    //$file_pointer = "../assets/images/movieTableCover/movie-poster-1.jpg";
-            //$file_pointer = "../" . $form_data->movieImgCover;
-            // Use unlink() function to delete a file 
             if (!unlink($file_pointer)) { 
                 echo ("$file_pointer from Drive cannot be deleted due to an error");
                 echo"\r\n"; 
@@ -159,9 +156,6 @@ class UpdateHandlings {
         }
     
         public static function del_addPictureCovers($file_pointer){
-                //$file_pointer = "../assets/images/movieTableCover/movie-poster-1.jpg";
-        //$file_pointer = "../" . $form_data->movieImgCover;
-        // Use unlink() function to delete a file 
         if (!unlink($file_pointer)) { 
             echo ("$file_pointer from Drive cannot be deleted due to an error");
             echo"\r\n"; 
@@ -177,7 +171,6 @@ class UpdateHandlings {
         self::$fileNameNewPrev="";
         if(isset($_POST['submitval'])){
                 UpdateHandlings::addPictureCovers('movieImgCover', 'movieImgPrev', 'movieTitle');
-//.$_POST['movieImgPrev'].
             $insert_query = "INSERT INTO 
             movieTable (  movieImgCover,
                           movieImgPrev,
@@ -227,7 +220,6 @@ class UpdateHandlings {
         }
     }
     public static function addHalls(){
-        //echo $_POST["tName_fk"]. 'hi';
         if(isset($_POST['submitHall'])){
             $insert_query = "INSERT INTO 
             hallstable (    tName_fk ,
@@ -258,7 +250,7 @@ class UpdateHandlings {
         $resultt = mysqli_query($db,$query);
         if(mysqli_num_rows($resultt) > 0){
             //$i=1;
-            while($row = mysqli_fetch_array($resultt)) {//select is value POST but insert is VALUE == name? see POST tut on YT
+            while($row = mysqli_fetch_array($resultt)) {
                 echo "<option value=\"".$row['tName_pk']."\">".$row['tName_pk']."</option>";
             }
         } else {}
@@ -268,7 +260,6 @@ class UpdateHandlings {
     public static function addScheduleMovies($user){
         if(isset($_POST['submitMActive'])){
 
-//query prwta gia check double egrafes wste no INSERT PARENT child CHECK for del
 $db=mysqli_connect("localhost", "root", "", "cinema_db");
 $query = "SELECT * FROM datetable WHERE date_uniq='".$_POST["date_play_fk"]."'";
 $resultt = mysqli_query($db,$query);
@@ -320,9 +311,6 @@ if(mysqli_num_rows($resultt) > 0){} else {
             return $row['urlPath'];}
         }
     }
-    /* pare edw KANE AUTO SELECT !!!! KAPWS!!! anti urlPath kati na sou dinetai san VARAIBLE ap to ti tainia me basi to Movie_play_FK name antoistoixisi to analogo NAME + URL
-    UpdateHandlings::getUrlPath(".$_POST["movie_play_fk"].", "test")
-    */
     public static function setSelectedViewDate(){
         if (self::$selectedScheduleViewDate == false)
         {
@@ -378,4 +366,3 @@ if(mysqli_num_rows($resultt) > 0){} else {
             }else echo 'nnn';
     }
 }
-?>

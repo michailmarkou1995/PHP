@@ -25,4 +25,3 @@ if($statement->execute())
   }
 }
 echo json_encode($data);
-?>
