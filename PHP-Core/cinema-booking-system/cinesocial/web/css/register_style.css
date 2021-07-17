@@ -129,8 +129,8 @@ body {
 }
 
 #loginText h1 {
-    /*color: #07d159;*/
-    color:#3498db;
+    color: #07d159;
+    /* color:#3498db; */
     font-size: 60px;
     font-weight: bold;
 }
@@ -151,8 +151,8 @@ body {
 }
 
 #inputContainer .errorMessage {
-    /*color: #07d159;*/
-    color:#3498db;
+    color: #07d159;
+    /* color:#3498db; */
     font-size: 12px;
     display: block;
 }

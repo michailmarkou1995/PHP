@@ -2,10 +2,10 @@
 -- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 11, 2021 at 06:39 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.5
+-- Εξυπηρετητής: 127.0.0.1
+-- Χρόνος δημιουργίας: 17 Ιουλ 2021 στις 19:49:50
+-- Έκδοση διακομιστή: 10.4.18-MariaDB
+-- Έκδοση PHP: 8.0.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cinema_db`
+-- Βάση δεδομένων: `cinema_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admins`
+-- Δομή πίνακα για τον πίνακα `admins`
 --
 
 CREATE TABLE `admins` (
@@ -34,7 +34,7 @@ CREATE TABLE `admins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `admins`
+-- Άδειασμα δεδομένων του πίνακα `admins`
 --
 
 INSERT INTO `admins` (`id`, `username`, `password`) VALUES
@@ -43,7 +43,7 @@ INSERT INTO `admins` (`id`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bookingtable`
+-- Δομή πίνακα για τον πίνακα `bookingtable`
 --
 
 CREATE TABLE `bookingtable` (
@@ -63,7 +63,7 @@ CREATE TABLE `bookingtable` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bookingtable`
+-- Άδειασμα δεδομένων του πίνακα `bookingtable`
 --
 
 INSERT INTO `bookingtable` (`bookingID`, `movieName_fk`, `bookingTheatre_fk`, `bookingTheatreHall_fk`, `bookingType_fk`, `bookingDate_fk`, `bookingTime_fk`, `bookingFName`, `bookingLName`, `bookingPNumber`, `bookingAccount_fk`, `seatP`, `price`) VALUES
@@ -109,7 +109,7 @@ INSERT INTO `bookingtable` (`bookingID`, `movieName_fk`, `bookingTheatre_fk`, `b
 -- --------------------------------------------------------
 
 --
--- Table structure for table `datetable`
+-- Δομή πίνακα για τον πίνακα `datetable`
 --
 
 CREATE TABLE `datetable` (
@@ -118,7 +118,7 @@ CREATE TABLE `datetable` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `datetable`
+-- Άδειασμα δεδομένων του πίνακα `datetable`
 --
 
 INSERT INTO `datetable` (`id`, `date_uniq`) VALUES
@@ -130,7 +130,7 @@ INSERT INTO `datetable` (`id`, `date_uniq`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `discounttable`
+-- Δομή πίνακα για τον πίνακα `discounttable`
 --
 
 CREATE TABLE `discounttable` (
@@ -143,7 +143,7 @@ CREATE TABLE `discounttable` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `feedbacktable`
+-- Δομή πίνακα για τον πίνακα `feedbacktable`
 --
 
 CREATE TABLE `feedbacktable` (
@@ -156,7 +156,7 @@ CREATE TABLE `feedbacktable` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `feedbacktable`
+-- Άδειασμα δεδομένων του πίνακα `feedbacktable`
 --
 
 INSERT INTO `feedbacktable` (`msgID`, `senderfName`, `senderlName`, `sendereMail`, `senderfeedback`, `account_fk`) VALUES
@@ -165,7 +165,7 @@ INSERT INTO `feedbacktable` (`msgID`, `senderfName`, `senderlName`, `sendereMail
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hallstable`
+-- Δομή πίνακα για τον πίνακα `hallstable`
 --
 
 CREATE TABLE `hallstable` (
@@ -180,7 +180,7 @@ CREATE TABLE `hallstable` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `hallstable`
+-- Άδειασμα δεδομένων του πίνακα `hallstable`
 --
 
 INSERT INTO `hallstable` (`id`, `tName_fk`, `date_added`, `removed`, `hallName`, `hallType`, `seatsAvailable`, `hall_id`) VALUES
@@ -192,7 +192,7 @@ INSERT INTO `hallstable` (`id`, `tName_fk`, `date_added`, `removed`, `hallName`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `movietable`
+-- Δομή πίνακα για τον πίνακα `movietable`
 --
 
 CREATE TABLE `movietable` (
@@ -210,7 +210,7 @@ CREATE TABLE `movietable` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `movietable`
+-- Άδειασμα δεδομένων του πίνακα `movietable`
 --
 
 INSERT INTO `movietable` (`movieID`, `movieImgCover`, `movieImgPrev`, `movieTitle`, `movieGenre`, `movieDuration`, `movieRelDate`, `movieDirector`, `movieActors`, `urlPath`, `admin_fk`) VALUES
@@ -224,7 +224,7 @@ INSERT INTO `movietable` (`movieID`, `movieImgCover`, `movieImgPrev`, `movieTitl
 -- --------------------------------------------------------
 
 --
--- Table structure for table `scheduletable`
+-- Δομή πίνακα για τον πίνακα `scheduletable`
 --
 
 CREATE TABLE `scheduletable` (
@@ -242,7 +242,7 @@ CREATE TABLE `scheduletable` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `scheduletable`
+-- Άδειασμα δεδομένων του πίνακα `scheduletable`
 --
 
 INSERT INTO `scheduletable` (`id`, `movie_play_fk`, `date_play_fk`, `time_play`, `duration_play_fk`, `theatre_name_fk`, `hall_name_fk`, `hall_type_fk`, `movie_synopsis`, `urlPath_fk`, `admin_fk`) VALUES
@@ -261,7 +261,7 @@ INSERT INTO `scheduletable` (`id`, `movie_play_fk`, `date_play_fk`, `time_play`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `test`
+-- Δομή πίνακα για τον πίνακα `test`
 --
 
 CREATE TABLE `test` (
@@ -270,7 +270,7 @@ CREATE TABLE `test` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `test`
+-- Άδειασμα δεδομένων του πίνακα `test`
 --
 
 INSERT INTO `test` (`id`, `name`) VALUES
@@ -283,7 +283,7 @@ INSERT INTO `test` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `test1`
+-- Δομή πίνακα για τον πίνακα `test1`
 --
 
 CREATE TABLE `test1` (
@@ -292,7 +292,7 @@ CREATE TABLE `test1` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `test1`
+-- Άδειασμα δεδομένων του πίνακα `test1`
 --
 
 INSERT INTO `test1` (`increase`, `names`) VALUES
@@ -303,7 +303,7 @@ INSERT INTO `test1` (`increase`, `names`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `theatretable`
+-- Δομή πίνακα για τον πίνακα `theatretable`
 --
 
 CREATE TABLE `theatretable` (
@@ -315,7 +315,7 @@ CREATE TABLE `theatretable` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `theatretable`
+-- Άδειασμα δεδομένων του πίνακα `theatretable`
 --
 
 INSERT INTO `theatretable` (`id`, `tName_pk`, `tHalls`, `tAvailable`, `admin_tk`) VALUES
@@ -326,7 +326,7 @@ INSERT INTO `theatretable` (`id`, `tName_pk`, `tHalls`, `tAvailable`, `admin_tk`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Δομή πίνακα για τον πίνακα `users`
 --
 
 CREATE TABLE `users` (
@@ -345,7 +345,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `users`
+-- Άδειασμα δεδομένων του πίνακα `users`
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `signup_date`, `profile_pic`, `num_posts`, `num_likes`, `user_closed`, `friend_array`) VALUES
@@ -359,12 +359,13 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `pass
 (13, 'Michail', 'Markou', 'michail_markou_1_2_3_4_5', 'Backtrackpower6@gmail.com', '2de40e2a5400099442596fc18d668132', '2021-05-10', 'assets/images/profile_pics/defaults/head_deep_blue.png', 0, 0, 'no', ','),
 (14, 'Michail', 'Markou', 'michail_markou_1_2_3_4_5_6', 'Backtrackpower7@gmail.com', '2de40e2a5400099442596fc18d668132', '2021-05-10', 'assets/images/profile_pics/defaults/head_emerald.png', 0, 0, 'no', ','),
 (15, 'Michail', 'Markou', 'michail_markou_1_2_3_4_5_6_7', 'Backtrackpower@gmail.com8', '2de40e2a5400099442596fc18d668132', '2021-05-10', 'assets/images/profile_pics/defaults/head_deep_blue.png', 0, 0, 'no', ','),
-(16, 'Michail', 'Markou', 'michail_markou_1_2_3_4_5_6_7_8', 'Backtrackpowerf@gmail.com', '2de40e2a5400099442596fc18d668132', '2021-05-10', 'assets/images/profile_pics/defaults/head_emerald.png', 0, 0, 'no', ',');
+(16, 'Michail', 'Markou', 'michail_markou_1_2_3_4_5_6_7_8', 'Backtrackpowerf@gmail.com', '2de40e2a5400099442596fc18d668132', '2021-05-10', 'assets/images/profile_pics/defaults/head_emerald.png', 0, 0, 'no', ','),
+(17, 'Test', 'Test', 'test_test', 'Test@test.com', '5a105e8b9d40e1329780d62ea2265d8a', '2021-07-17', 'assets/images/profile_pics/defaults/head_deep_blue.png', 0, 0, 'no', ',');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usersettingstable`
+-- Δομή πίνακα για τον πίνακα `usersettingstable`
 --
 
 CREATE TABLE `usersettingstable` (
@@ -375,20 +376,21 @@ CREATE TABLE `usersettingstable` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `usersettingstable`
+-- Άδειασμα δεδομένων του πίνακα `usersettingstable`
 --
 
 INSERT INTO `usersettingstable` (`id`, `user_fk`, `colortheme`, `typography`) VALUES
 (1, 'Backtrackpower@gmail.com', '#FFF', ''),
 (3, 'Sylvimarkou@hotmail.com', '#FFF', ''),
-(17, 'Backtrackpowerf@gmail.com', '#FFF', '');
+(17, 'Backtrackpowerf@gmail.com', '#FFF', ''),
+(18, 'Test@test.com', '#FFF', '');
 
 --
--- Indexes for dumped tables
+-- Ευρετήρια για άχρηστους πίνακες
 --
 
 --
--- Indexes for table `admins`
+-- Ευρετήρια για πίνακα `admins`
 --
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`username`),
@@ -396,7 +398,7 @@ ALTER TABLE `admins`
   ADD KEY `username` (`username`);
 
 --
--- Indexes for table `bookingtable`
+-- Ευρετήρια για πίνακα `bookingtable`
 --
 ALTER TABLE `bookingtable`
   ADD PRIMARY KEY (`bookingID`),
@@ -410,21 +412,21 @@ ALTER TABLE `bookingtable`
   ADD KEY `bookingDate_fk` (`bookingDate_fk`);
 
 --
--- Indexes for table `datetable`
+-- Ευρετήρια για πίνακα `datetable`
 --
 ALTER TABLE `datetable`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `date` (`date_uniq`);
 
 --
--- Indexes for table `discounttable`
+-- Ευρετήρια για πίνακα `discounttable`
 --
 ALTER TABLE `discounttable`
   ADD PRIMARY KEY (`id`),
   ADD KEY `admin` (`admin`);
 
 --
--- Indexes for table `feedbacktable`
+-- Ευρετήρια για πίνακα `feedbacktable`
 --
 ALTER TABLE `feedbacktable`
   ADD PRIMARY KEY (`msgID`),
@@ -432,7 +434,7 @@ ALTER TABLE `feedbacktable`
   ADD KEY `account_fk` (`account_fk`);
 
 --
--- Indexes for table `hallstable`
+-- Ευρετήρια για πίνακα `hallstable`
 --
 ALTER TABLE `hallstable`
   ADD PRIMARY KEY (`id`),
@@ -441,7 +443,7 @@ ALTER TABLE `hallstable`
   ADD KEY `hallName` (`hallName`);
 
 --
--- Indexes for table `movietable`
+-- Ευρετήρια για πίνακα `movietable`
 --
 ALTER TABLE `movietable`
   ADD PRIMARY KEY (`movieID`),
@@ -452,7 +454,7 @@ ALTER TABLE `movietable`
   ADD KEY `movieDuration` (`movieDuration`);
 
 --
--- Indexes for table `scheduletable`
+-- Ευρετήρια για πίνακα `scheduletable`
 --
 ALTER TABLE `scheduletable`
   ADD PRIMARY KEY (`id`),
@@ -467,19 +469,19 @@ ALTER TABLE `scheduletable`
   ADD KEY `hall_name_fk` (`hall_name_fk`);
 
 --
--- Indexes for table `test`
+-- Ευρετήρια για πίνακα `test`
 --
 ALTER TABLE `test`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `test1`
+-- Ευρετήρια για πίνακα `test1`
 --
 ALTER TABLE `test1`
   ADD PRIMARY KEY (`increase`);
 
 --
--- Indexes for table `theatretable`
+-- Ευρετήρια για πίνακα `theatretable`
 --
 ALTER TABLE `theatretable`
   ADD PRIMARY KEY (`id`,`tName_pk`),
@@ -487,14 +489,14 @@ ALTER TABLE `theatretable`
   ADD KEY `admin_tk` (`admin_tk`);
 
 --
--- Indexes for table `users`
+-- Ευρετήρια για πίνακα `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Indexes for table `usersettingstable`
+-- Ευρετήρια για πίνακα `usersettingstable`
 --
 ALTER TABLE `usersettingstable`
   ADD PRIMARY KEY (`id`),
@@ -502,87 +504,87 @@ ALTER TABLE `usersettingstable`
   ADD KEY `colortheme` (`colortheme`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT για άχρηστους πίνακες
 --
 
 --
--- AUTO_INCREMENT for table `bookingtable`
+-- AUTO_INCREMENT για πίνακα `bookingtable`
 --
 ALTER TABLE `bookingtable`
   MODIFY `bookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=307;
 
 --
--- AUTO_INCREMENT for table `datetable`
+-- AUTO_INCREMENT για πίνακα `datetable`
 --
 ALTER TABLE `datetable`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `discounttable`
+-- AUTO_INCREMENT για πίνακα `discounttable`
 --
 ALTER TABLE `discounttable`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `feedbacktable`
+-- AUTO_INCREMENT για πίνακα `feedbacktable`
 --
 ALTER TABLE `feedbacktable`
   MODIFY `msgID` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `hallstable`
+-- AUTO_INCREMENT για πίνακα `hallstable`
 --
 ALTER TABLE `hallstable`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT for table `movietable`
+-- AUTO_INCREMENT για πίνακα `movietable`
 --
 ALTER TABLE `movietable`
   MODIFY `movieID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
--- AUTO_INCREMENT for table `scheduletable`
+-- AUTO_INCREMENT για πίνακα `scheduletable`
 --
 ALTER TABLE `scheduletable`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
--- AUTO_INCREMENT for table `test`
+-- AUTO_INCREMENT για πίνακα `test`
 --
 ALTER TABLE `test`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `test1`
+-- AUTO_INCREMENT για πίνακα `test1`
 --
 ALTER TABLE `test1`
   MODIFY `increase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `theatretable`
+-- AUTO_INCREMENT για πίνακα `theatretable`
 --
 ALTER TABLE `theatretable`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT για πίνακα `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT for table `usersettingstable`
---
-ALTER TABLE `usersettingstable`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT για πίνακα `usersettingstable`
+--
+ALTER TABLE `usersettingstable`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- Περιορισμοί για άχρηστους πίνακες
 --
 
 --
--- Constraints for table `bookingtable`
+-- Περιορισμοί για πίνακα `bookingtable`
 --
 ALTER TABLE `bookingtable`
   ADD CONSTRAINT `bookingtable_ibfk_1` FOREIGN KEY (`bookingTheatre_fk`) REFERENCES `theatretable` (`tName_pk`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -590,35 +592,34 @@ ALTER TABLE `bookingtable`
   ADD CONSTRAINT `bookingtable_ibfk_3` FOREIGN KEY (`bookingType_fk`) REFERENCES `hallstable` (`hallType`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `bookingtable_ibfk_4` FOREIGN KEY (`movieName_fk`) REFERENCES `movietable` (`movieTitle`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `bookingtable_ibfk_6` FOREIGN KEY (`bookingTheatreHall_fk`) REFERENCES `hallstable` (`hallName`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `bookingtable_ibfk_7` FOREIGN KEY (`bookingTime_fk`) REFERENCES `scheduletable` (`time_play`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `bookingtable_ibfk_8` FOREIGN KEY (`bookingDate_fk`) REFERENCES `datetable` (`date_uniq`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `discounttable`
+-- Περιορισμοί για πίνακα `discounttable`
 --
 ALTER TABLE `discounttable`
   ADD CONSTRAINT `discounttable_ibfk_1` FOREIGN KEY (`admin`) REFERENCES `admins` (`username`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `feedbacktable`
+-- Περιορισμοί για πίνακα `feedbacktable`
 --
 ALTER TABLE `feedbacktable`
   ADD CONSTRAINT `feedbacktable_ibfk_1` FOREIGN KEY (`account_fk`) REFERENCES `users` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `hallstable`
+-- Περιορισμοί για πίνακα `hallstable`
 --
 ALTER TABLE `hallstable`
   ADD CONSTRAINT `hallstable_ibfk_1` FOREIGN KEY (`tName_fk`) REFERENCES `theatretable` (`tName_pk`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `movietable`
+-- Περιορισμοί για πίνακα `movietable`
 --
 ALTER TABLE `movietable`
   ADD CONSTRAINT `movietable_ibfk_1` FOREIGN KEY (`admin_fk`) REFERENCES `admins` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `scheduletable`
+-- Περιορισμοί για πίνακα `scheduletable`
 --
 ALTER TABLE `scheduletable`
   ADD CONSTRAINT `scheduletable_ibfk_1` FOREIGN KEY (`movie_play_fk`) REFERENCES `movietable` (`movieTitle`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -631,13 +632,13 @@ ALTER TABLE `scheduletable`
   ADD CONSTRAINT `scheduletable_ibfk_8` FOREIGN KEY (`date_play_fk`) REFERENCES `datetable` (`date_uniq`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `theatretable`
+-- Περιορισμοί για πίνακα `theatretable`
 --
 ALTER TABLE `theatretable`
   ADD CONSTRAINT `theatretable_ibfk_1` FOREIGN KEY (`admin_tk`) REFERENCES `admins` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `usersettingstable`
+-- Περιορισμοί για πίνακα `usersettingstable`
 --
 ALTER TABLE `usersettingstable`
   ADD CONSTRAINT `usersettingstable_ibfk_1` FOREIGN KEY (`user_fk`) REFERENCES `users` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;

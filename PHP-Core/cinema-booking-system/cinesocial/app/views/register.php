@@ -144,7 +144,7 @@
 			</div>
 
 			<div id="loginText">
-				<h1 style="color:#3498db">Get great Movies, right now</h1>
+				<h1 style="color:#07d159">Get great Movies, right now</h1>
 				<h2>Book to loads of movies</h2>
 				<ul>
 					<li>Discover movies you'll fall in love with</li>
