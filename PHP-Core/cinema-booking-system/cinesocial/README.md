@@ -1,6 +1,6 @@
 XAMPP Control Panel V3.3.0 Apr 6th 2021
 
-YouTube ScreenCast of the Application:  \n
+YouTube ScreenCast of the Application:  \
 
 App Entry Points
 USER: http://localhost:8012/PHP-main/cinesocial/app/views/register.php || http://localhost:8012/PHP-main/cinesocial \
