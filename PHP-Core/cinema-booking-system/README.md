@@ -7,6 +7,7 @@ YouTube ScreenCast of the Application: https://youtu.be/nzP4N8CDv7o
 <img src="img/darkmode.jpg" width="1200">
 <img src="img/notScheduledMovie.jpg" width="1200">
 <img src="img/seatScheduled.jpg" width="1200">
+Real Time Seat Selector with Ajax
 <img src="img/usertickets.jpg" width="1200">
 <img src="img/adminBook.jpg" width="1200">
 <img src="img/addremovemovie.jpg" width="1200">
